@@ -10,7 +10,6 @@ name
 email
 password
 school
-grade level
 profile picture
 (validation of info on front and back)
 4. submit takes to next page of registration

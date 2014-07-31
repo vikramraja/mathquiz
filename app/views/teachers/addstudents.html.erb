@@ -1,0 +1,20 @@
+<h1>Teachers#addstudents</h1>
+<h2>Sign up</h2>
+
+<%= form_for(resource, as: resource_name, url: teachers_path(create)) do |f| %>
+
+  <!-- form for needs to be updated to teacher enrollment -->
+
+  
+    <div><%= f.label :Student1Name %><br />
+  <%= f.text_field :Student1Name %></div>
+
+  <div><%= f.label :Student1Email %><br />
+  <%= f.email_field :Student1Email %></div>
+
+
+    <div><%= f.label :Student2Name %><br />
+  <%= f.text_field :Student2Name %></div>
+
+  <div><%= f.label :Student2Email %><br />
+  <%= f.email_field :Student2Email %></div>
