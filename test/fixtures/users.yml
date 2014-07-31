@@ -2,6 +2,12 @@
 
 one:
   role: MyString
+  firstname: MyString
+  lastname: MyString
+  role: MyString
 
 two:
+  role: MyString
+  firstname: MyString
+  lastname: MyString
   role: MyString
