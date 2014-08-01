@@ -1,0 +1,30 @@
+<h2>New Course</h2>
+
+
+<%= form_for(@course) do |f| %>
+
+  <!-- form for needs to be updated to teacher enrollment -->
+
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name %></div>
+
+  <div><%= f.label :description %><br />
+  <%= f.text_field :description %></div>
+
+  <%= label_tag :student1name %><br />
+  <%= text_field_tag :student1name %>
+
+  <%= label_tag :student1email %><br />
+  <%= email_field_tag :student1email %>
+
+  <%= label_tag :student2name %><br />
+  <%= text_field_tag :student2name %>
+
+  <%= label_tag :student2email %><br />
+  <%= email_field_tag :student2email %>
+
+
+  
+
+  <div><%= f.submit "Next" %></div>
+<% end %>
