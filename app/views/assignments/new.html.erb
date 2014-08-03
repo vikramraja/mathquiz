@@ -13,6 +13,12 @@
   <div><%= f.label :duedate %><br />
   <%= f.date_field :duedate %></div>
 
+  <div><%= f.label :problemtype %><br />
+
+<%= radio_button_tag(:problemtype, "Addition") %>
+<%= label_tag(:age_child, "I am younger than 21") %>
+<%= radio_button_tag(:age, "adult") %>
+<%= label_tag(:age_adult, "I'm over 21") %>
   
 
   <div><%= f.submit "Dashboard" %></div>

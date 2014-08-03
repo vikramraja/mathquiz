@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140731203205) do
+ActiveRecord::Schema.define(version: 20140803152156) do
 
   create_table "assignments", force: true do |t|
     t.datetime "duedate"
@@ -21,6 +21,8 @@ ActiveRecord::Schema.define(version: 20140731203205) do
     t.string   "status"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "problemtype"
+    t.integer  "problemnumber"
   end
 
   create_table "courses", force: true do |t|

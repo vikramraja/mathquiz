@@ -8,7 +8,9 @@ class AssignmentsController < ApplicationController
 
 		@assignment = Assignment.new(assignment_params)
 		@assignment.creator_id = current_user.id
+		@assignment.status = "open"
 		
+
 
 
 	end
