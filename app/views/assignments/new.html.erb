@@ -16,6 +16,11 @@
   	<p>What type of math problems?</p>
   	<%= f.select :problemtype, [["Addition", "addition"],["Multiplication","multiplication"],["Subtraction","subtraction"]] %>
   </div>
+
+  <div>
+  	<p>How many problem sets?</p>
+  	<%= f.select :problemnumber, [["1 Set", 1],["2 Sets",2],["3 Sets",3]] %>
+  </div>
   
 
   <div><%= f.submit "Dashboard" %></div>
