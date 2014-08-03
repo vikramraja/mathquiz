@@ -1,1 +1,24 @@
-index.html
+<h1>Hey [user] here's whats new!</h1>
+
+<!-- Add show to all courses, and within the course, all assignments -->
+
+<!-- Show logic -->
+
+<% current_user.courses.each do |c| %>
+	<%= c.name %>
+	<%= c.description %>
+	<% c.assignments.each do |a| %>
+	<%= a.name %>
+	<%= a.description %>
+	<% if current_user.role == "student"
+		render _studentactions
+
+		else
+		render _teacheractions
+		%>
+
+
+	<% end %>
+
+<% end %>
+

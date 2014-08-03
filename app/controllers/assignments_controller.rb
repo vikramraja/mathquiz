@@ -1,27 +1,28 @@
 class AssignmentsController < ApplicationController
 
-	def new 
-		@assignment = Assignment.new
-	end
+  def new
+    @assignment = Assignment.new
+  end
 
-	def create
+  def create
 
-		@assignment = Assignment.new(assignment_params)
-		@assignment.creator_id = current_user.id
-		@assignment.status = "open"
-		
-
-
-
-	end
+    @assignment = Assignment.new(assignment_params)
+    @assignment.creator_id = current_user.id
+    @assignment.status = "open"
+    redirect_to assignments
 
 
 
-	private
 
-	def assignment_params
-		 params.require(:assignment).permit(:name, :description, :duedate)
-			end
+  end
+
+
+
+  private
+
+  def assignment_params
+    params.require(:assignment).permit(:name, :description, :duedate)
+  end
 
 
 end
