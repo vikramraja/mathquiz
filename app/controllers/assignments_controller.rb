@@ -1,4 +1,6 @@
 class AssignmentsController < ApplicationController
+# add before_actions to this controller
+
 
   def new
     @assignment = Assignment.new
@@ -9,7 +11,7 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new(assignment_params)
     @assignment.creator_id = current_user.id
     @assignment.status = "open"
-    redirect_to assignments
+    redirect_to assignments_path
 
 
 
@@ -21,7 +23,7 @@ class AssignmentsController < ApplicationController
   private
 
   def assignment_params
-    params.require(:assignment).permit(:name, :description, :duedate)
+    params.require(:assignment).permit(:name, :description, :duedate, :problemtype, :problemnumber)
   end
 
 
