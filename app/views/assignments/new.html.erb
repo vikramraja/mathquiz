@@ -1,0 +1,19 @@
+<h2>New Assignment</h2>
+
+
+<%= form_for(@assignment) do |f| %>
+
+
+  <div><%= f.label :name %><br />
+  <%= f.text_field :name %></div>
+
+  <div><%= f.label :description %><br />
+  <%= f.text_field :description %></div>
+
+  <div><%= f.label :duedate %><br />
+  <%= f.date_field :duedate %></div>
+
+  
+
+  <div><%= f.submit "Dashboard" %></div>
+<% end %>

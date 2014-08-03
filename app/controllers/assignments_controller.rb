@@ -1,13 +1,23 @@
 class AssignmentsController < ApplicationController
 
-	def create()
+	def new 
+		@assignment = Assignment.new
 	end
 
-	def remove()
+	def create
+
+		@assignment = Assignment.new(assignment_params)
+		@assignment.creator_id = current_user.id
+		
+
+
 	end
 
-	def edit()
-	end
 
-	
+
+	private:
+
+	def assignment_params
+		 params.require(:assignment).permit(:name, :description, :duedate)
+
 end

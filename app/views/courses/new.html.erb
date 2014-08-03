@@ -3,25 +3,25 @@
 
 <%= form_for(@course) do |f| %>
 
-  <!-- form for needs to be updated to teacher enrollment -->
 
   <div><%= f.label :name %><br />
-  <%= f.text_field :name %></div>
+
+  <%= f.text_field :name, value: "Hi" %></div>
 
   <div><%= f.label :description %><br />
-  <%= f.text_field :description %></div>
+  <%= f.text_field :description, value: "Hi" %></div>
 
   <%= label_tag :student1name %><br />
-  <%= text_field_tag :student1name %>
+  <%= text_field_tag :student1name, "Hi" %>
 
-  <%= label_tag :student1email %><br />
-  <%= email_field_tag :student1email %>
+ <br /> <%= label_tag :student1email %><br />
+  <%= email_field_tag :student1email, "Hi@hi.com" %>
 
-  <%= label_tag :student2name %><br />
-  <%= text_field_tag :student2name %>
+  <br /><%= label_tag :student2name %><br />
+  <%= text_field_tag :student2name, "Hi" %>
 
-  <%= label_tag :student2email %><br />
-  <%= email_field_tag :student2email %>
+  <br /><%= label_tag :student2email %><br />
+  <%= email_field_tag :student2email,"Hi@hi.vom" %>
 
 
   
