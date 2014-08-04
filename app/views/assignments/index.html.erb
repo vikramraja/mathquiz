@@ -5,13 +5,13 @@
 
 <!-- Show logic -->
 
-<% current_user.courses.each do |c| %>
+<% @courses.each do |c| %>
 	<%= c.name %>
 	<%= c.description %>
 	<% c.assignments.each do |a| %>
 		<%= a.name %>
 		<%= a.description %>
-		<% if current_user.role == "student" %>
+		<% if @user.role == "student" %>
 			<%= render "studentactions" %>
 		<% else %>
 			<%= render "teacheractions" %>

@@ -2,6 +2,10 @@ class AssignmentsController < ApplicationController
 # add before_actions to this controller
 
 
+  def index
+    @courses = current_user.courses
+  end
+
   def new
     @assignment = Assignment.new
   end

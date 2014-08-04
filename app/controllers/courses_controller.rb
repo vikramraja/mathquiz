@@ -1,13 +1,16 @@
 class CoursesController < ApplicationController
 
+
 	def new 
 		@course = Course.new 
 	end
 
 	def create
-		
 		@course = Course.new(course_params)
-		if @course.save
+		if @course.save!
+
+			@course.users << current_user
+
 			student1 = User.invite!(:email => params[:student1email], 
 			:firstname => params[:student1name], :role => "student", )
 
