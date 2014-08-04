@@ -9,7 +9,4 @@ class User < ActiveRecord::Base
 	has_many :created_quizzes, foreign_key: :creator_id, class_name: :quiz
 	has_many :challenged_quizzes, foreign_key: :challenger_id, class_name: :quiz
 
-	# looks for a table named created_quizzes
-	# and then looks for a fk named user_id
-
 end
