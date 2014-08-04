@@ -9,18 +9,13 @@
 	<%= c.name %>
 	<%= c.description %>
 	<% c.assignments.each do |a| %>
-	<%= a.name %>
-	<%= a.description %>
-	<% if current_user.role == "student"
-		render _studentactions
-
-		else
-		render _teacheractions
-		%>
-
-
-	<% end %>
-
+		<%= a.name %>
+		<%= a.description %>
+		<% if current_user.role == "student" %>
+			<%= render "studentactions" %>
+		<% else %>
+			<%= render "teacheractions" %>
+		<% end %>
 	<% end %>
 <% end %>
 
