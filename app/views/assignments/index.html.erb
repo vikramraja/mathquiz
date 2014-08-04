@@ -12,9 +12,9 @@
 		<%= a.name %>
 		<%= a.description %>
 		<% if @user.role == "student" %>
-			<%= render "studentactions" %>
+			<%= render "studentactions", a: a %>
 		<% else %>
-			<%= render "teacheractions" %>
+			<%= render "teacheractions", a: a %>
 		<% end %>
 	<% end %>
 <% end %>

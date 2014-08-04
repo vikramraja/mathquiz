@@ -17,6 +17,7 @@ class AssignmentsController < ApplicationController
     @assignment.status = "open"
     @assignment.save
     #need to connect the 
+    @assignment.topic = Topic.create([{ operand: @assignment.problemtype }, { difficulty: @assignment.problemdifficulty }])
     redirect_to assignments_path
 
   end
