@@ -11,4 +11,5 @@ class User < ActiveRecord::Base
 
 	# looks for a table named created_quizzes
 	# and then looks for a fk named user_id
+
 end
