@@ -16,6 +16,7 @@ class AssignmentsController < ApplicationController
     @assignment.creator_id = current_user.id
     @assignment.status = "open"
     @assignment.save
+    #need to connect the 
     redirect_to assignments_path
 
   end

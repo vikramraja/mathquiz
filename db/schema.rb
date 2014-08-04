@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140804142612) do
+ActiveRecord::Schema.define(version: 20140804182539) do
 
   create_table "assignments", force: true do |t|
     t.datetime "duedate"
@@ -53,6 +53,14 @@ ActiveRecord::Schema.define(version: 20140804142612) do
     t.string   "status"
     t.integer  "creator_score"
     t.integer  "challenger_score"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "assignment_id"
+  end
+
+  create_table "topics", force: true do |t|
+    t.string   "operand"
+    t.string   "difficulty"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
