@@ -1,7 +1,10 @@
+/******************TOP SECTION**************************/
+
+
 #top {
 	/* top makes the home section line up RIGHT after the nav bar*/
 	position:relative;
-	height: 80vh;
+	height: 20vh;
 	width: 100%;
 	/*background-image: url("springbok.jpg"); 
 	-webkit-background-size: cover;
@@ -23,54 +26,74 @@
 	min-width: 100%;
 }
 
+/******************ABOUT SECTION**************************/
 
+
+
+
+#topblock {
+	background-color: rgba(125,125,125,.6);
+	width:80%;
+	border-radius: 40px;
+	padding:0;
+  	margin-left: auto;
+  	margin-right: auto;
+	text-align: center;
+	top: 100px;
+	height: 40%;
+}
+
+.profpics {
+	width: 120px;
+	height: 150px;
+}
+
+#about ul {
+	list-style: none;
+}
+
+#lianaleftblock {
+	background-color: rgba(125,125,125,.6);
+	width:40%;
+	border-radius: 40px;
+	padding:0;
+	position: inline-block;
+	margin-top: 10%;
+	top: 100px;
+	height: 40%;
+	float: left;
+}
+
+#vikramrightblock {
+	background-color: rgba(125,125,125,.6);
+	width:40%;
+	border-radius: 40px;
+	padding:0;	
+	margin-top: 10%;
+	position: inline-block;
+	top: 100px;
+	height: 40%;
+	float: right;
+}
 /******************CONTACT SECTION**************************/
-/*
+
 #contact {
-	/* top makes the home section line up RIGHT after the nav bar
-	position:relative; 
-	background-position:center;
-	background-repeat: no-repeat;
-	background-attachment:fixed;
-	background-size:cover;
-	margin-top:-25px;
-	height:100vh;
-	border-top: 5px solid #D2DADF;
-	min-width:1130px;
+	text-align: center;
+
 } 
+
 
 #contact .head {
 	display: inline-block;
-	margin-top: 10%;
-	margin-left: 100px;
+	margin-top: 8%;
 }
 
-#contact .head h3 {
-	font-family:'Helvetica-Neue', Helvetica, serif;
-	font-weight: 200;
-	color:#BEECFE;
-	font-size:3em;
-	position:relative;
-	top:-65px;
-}
-
-#contact .head a {
-	text-decoration:none;
-	color: white;
-	font-family: 'Helvetica-Neue', Helvetica, serif;
-	font-weight:100;
-	padding-left: 30px;
-	position:relative;
-	top: 35vh;
-	
-}
 
 
 label {
-	color:white;
+	color:black;
 	font-family: 'Helvetica-Neue', Helvetica, serif;
 	font-weight:100;
 	margin-bottom: 30px;
 }
 
-*/

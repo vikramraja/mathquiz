@@ -24,29 +24,38 @@
 	
 
 		<section class="sections" id="about">
-			<div id="someinfo">
-				<ul>
-				</ul>
-			</div>
-			<div id="about us">
+			<div id="topblock">
 				<ul>
 					<li>
 						<strong>About Springbook</strong>
 					</li>
+
 					<li>
 						Games facilitate learning blah blah.
 					</li>
-					<li>
-						<strong>Vikram Raja</strong>
-					</li>
-					<li>
-						Born and raised in D.C. blah blah
-					</li>
+				</ul>
+			</div>
+			<div id="lianaleftblock">
+				<ul>
+
 					<li>
 						<strong>Liana Kadisha</strong>
 					</li>
 					<li>
-						As a Stanford student, blah blah
+						<%= image_tag "liana.jpg", class: "profpics" %> <br>
+
+						Stanford yeah blah
+					</li>
+					</ul>
+				</div>
+			<div id="vikramrightblock">
+				<ul>
+					<li>
+						<strong>Vikram Raja</strong>
+					</li>
+					<li>
+						<%= image_tag "vikram.jpg", class: "profpics" %> <br>
+						Born and raised blah blah
 					</li>
 	
 				</ul>
@@ -56,14 +65,14 @@
 
 		<section class="sections" id="contact">
 			<div class="head">
-				<h3> <br>
-					Have Questions? <br> Reach Out!</h3> 
+				<h3> 
+					Have Questions? <br> Reach Out!</h3>  <br>
 			</div>
 
 			<div id="contact_form">
 		<form action="#" method="POST" name="my_form">
-				    <label for="Name"></label>
-				    <input type="text" name="Name" placeholder="Full Name" id="Name"><br><br>
+				    <label for="Name">
+				    <input type="text" name="Name" placeholder="Full Name" id="Name"></label><br><br>
   					<label for="" "email"=""> 
   					<input type="email" name="email" placeholder="E-mail" ><br><br>
 				    <input type="radio" name="type" value="Teacher" id="teacher"><label for="teacher">Teacher</label><br>
@@ -73,7 +82,7 @@
 				    <label for="essay"></label> <br>
 				    <textarea name="essay" placeholder="Message" id="essay" rows="10" cols="40"></textarea> <br>
 				    <br>
-				    <input type="submit" value="Send!">
+				    <input type="submit" value="Send!"> <br><br>
 				
 			</label></form>
 
