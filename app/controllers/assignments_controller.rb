@@ -1,8 +1,9 @@
 class AssignmentsController < ApplicationController
 # add before_actions to this controller
 
-
   def index
+    @firstname = current_user.firstname
+    @lastname = current_user.lastname
     @courses = current_user.courses
   end
 
@@ -16,18 +17,14 @@ class AssignmentsController < ApplicationController
     @assignment.creator_id = current_user.id
     @assignment.status = "open"
     @assignment.save
-    #need to connect the 
     redirect_to assignments_path
 
   end
-
-
 
   private
 
   def assignment_params
     params.require(:assignment).permit(:name, :description, :duedate, :problemtype, :problemnumber)
   end
-
 
 end
