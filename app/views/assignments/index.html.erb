@@ -35,10 +35,12 @@
 
 
 
-<h3>Course List:</h3>
+<h3>Course List</h3>
 <% @courses.each do |c| %>
-	<%= c.name %>
-	<%= c.description %> <br><br>
+	<%= c.name %> 
+	<%= c.description %> 
+
+	<br><br>
 	<% c.assignments.each do |a| %>
 		<%= a.name %>
 		<%= a.description %>
