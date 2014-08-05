@@ -29,6 +29,7 @@
 #
 
 class User < ActiveRecord::Base
+	after_initialize :default_values
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :invitable, :database_authenticatable, :registerable,
@@ -38,5 +39,11 @@ class User < ActiveRecord::Base
 
 	has_many :created_quizzes, foreign_key: :creator_id, class_name: :quiz
 	has_many :challenged_quizzes, foreign_key: :challenger_id, class_name: :quiz
+
+
+	private
+    def default_values
+      self.role ||= "teacher"
+    end
 
 end

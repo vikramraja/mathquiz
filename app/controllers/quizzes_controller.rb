@@ -22,10 +22,6 @@ class QuizzesController < ApplicationController
 			end
 		end
 
-	def play
-
-		Quiz.create
-
 
 		# render the quiz page for the creator
 
