@@ -13,9 +13,9 @@
         </div>
         
         <div class="span8">
-            <h3><%= "#{@firstname}" + "<-Name->" + "#{@lastname}" %></h3>
-            <h6>Email: MyEmail@servidor.com</h6>
-            <h6>Role: Teacher/Student</h6>
+            <h3><%= "#{@firstname}" + " " + "#{@lastname}" %></h3>
+            <h6>Email: <%= current_user.email %></h6>
+            <h6>Role: <%= current_user.role %></h6>
         </div>
         
         <div class="span2">
