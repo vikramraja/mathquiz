@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140805135226) do
+ActiveRecord::Schema.define(version: 20140805211208) do
 
   create_table "assignments", force: true do |t|
     t.datetime "duedate"
@@ -64,7 +64,10 @@ ActiveRecord::Schema.define(version: 20140805135226) do
     t.string   "difficulty"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "assignment_id"
   end
+
+  add_index "topics", ["assignment_id"], name: "index_topics_on_assignment_id"
 
   create_table "users", force: true do |t|
     t.string   "role",                   default: "teacher"

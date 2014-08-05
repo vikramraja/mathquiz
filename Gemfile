@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'pry-rails'
+# gem 'pry-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
 # Use sqlite3 as the database for Active Record
@@ -19,9 +19,15 @@ gem 'bootstrap-sass'
 gem 'annotate', ">=2.6.0"
 
 
+
 group :development do 
 	gem 'quiet_assets'
 	gem 'puma'
+	gem 'jazz_hands', github: 'nixme/jazz_hands', branch: 'bring-your-own-debugger'
+	gem 'pry-byebug'
+	
+
+
 end
 	
 # Use jquery as the JavaScript library
