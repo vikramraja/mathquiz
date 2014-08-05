@@ -1,0 +1,76 @@
+#top {
+	/* top makes the home section line up RIGHT after the nav bar*/
+	position:relative;
+	height: 80vh;
+	width: 100%;
+	/*background-image: url("springbok.jpg"); 
+	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+ 	-o-background-size: cover;
+	background-size: cover;
+*/
+	/*background-position:left;*/
+	/*background-repeat: no-repeat;*/
+	/*background-attachment: fixed;*/
+	/*background-size: cover;*/
+	margin-left: -20px;
+	padding-left: -10px;
+	min-width:1130px;
+} 
+
+.bg-img {
+	background-size: cover;
+	min-width: 100%;
+}
+
+
+/******************CONTACT SECTION**************************/
+/*
+#contact {
+	/* top makes the home section line up RIGHT after the nav bar
+	position:relative; 
+	background-position:center;
+	background-repeat: no-repeat;
+	background-attachment:fixed;
+	background-size:cover;
+	margin-top:-25px;
+	height:100vh;
+	border-top: 5px solid #D2DADF;
+	min-width:1130px;
+} 
+
+#contact .head {
+	display: inline-block;
+	margin-top: 10%;
+	margin-left: 100px;
+}
+
+#contact .head h3 {
+	font-family:'Helvetica-Neue', Helvetica, serif;
+	font-weight: 200;
+	color:#BEECFE;
+	font-size:3em;
+	position:relative;
+	top:-65px;
+}
+
+#contact .head a {
+	text-decoration:none;
+	color: white;
+	font-family: 'Helvetica-Neue', Helvetica, serif;
+	font-weight:100;
+	padding-left: 30px;
+	position:relative;
+	top: 35vh;
+	
+}
+
+
+label {
+	color:white;
+	font-family: 'Helvetica-Neue', Helvetica, serif;
+	font-weight:100;
+	margin-bottom: 30px;
+}
+
+*/

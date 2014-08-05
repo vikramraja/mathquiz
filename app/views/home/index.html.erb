@@ -11,54 +11,39 @@
   <style type="text/css"></style>
 </head>
 <body>
-
-
-	<section class="sections" id="home">
-		<div class="left">
-				<h3> <br>
-				springbook. </br></h3> 
+		<% content_for :background do %>
+		<%= image_tag "springbok.jpg", class: "bg-img" %>
+		<% end %>
+		<section class="homeTop" id="top">
+			<h3> 
+				springbook. </br>
+			</h3> 
 				
-		</div>
-	</section>
-	<section id="quote">
-		<p>
-			"Just play. Have fun. Enjoy the game."
-			- Michael Jordan
-		</p>
-		<div class="clearfix">
-		</div>
-		<section class"sections" id="about">
+		</section>
+	
+	
+
+		<section class="sections" id="about">
 			<div id="someinfo">
+				<ul>
+				</ul>
+			</div>
+			<div id="about us">
 				<ul>
 					<li>
 						<strong>About Springbook</strong>
-						
 					</li>
 					<li>
 						Games facilitate learning blah blah.
 					</li>
-	
-				</ul>
-			</div>
-			<div id="someinfoliana">
-				<ul>
 					<li>
 						<strong>Vikram Raja</strong>
-						
 					</li>
 					<li>
 						Born and raised in D.C. blah blah
-						
 					</li>
-	
-				</ul>
-			</div>
-
-			<div id="someinfovikram">
-				<ul>
 					<li>
 						<strong>Liana Kadisha</strong>
-						
 					</li>
 					<li>
 						As a Stanford student, blah blah
