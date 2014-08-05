@@ -16,6 +16,8 @@ gem 'coffee-rails', '~> 4.0.0'
 
 gem 'bootstrap-sass'
 
+gem 'annotate', ">=2.6.0"
+
 
 group :development do 
 	gem 'quiet_assets'

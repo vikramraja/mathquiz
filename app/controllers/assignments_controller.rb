@@ -16,6 +16,11 @@ class AssignmentsController < ApplicationController
     @assignment = Assignment.new(assignment_params)
     @assignment.creator_id = current_user.id
     @assignment.status = "open"
+
+    
+    #need to connect the 
+    @assignment.topic = Topic.create([{ operand: params[:problemtype] }, { difficulty: params[:problemdifficulty] }])
+
     @assignment.save
     redirect_to assignments_path
 
@@ -24,7 +29,7 @@ class AssignmentsController < ApplicationController
   private
 
   def assignment_params
-    params.require(:assignment).permit(:name, :description, :duedate, :problemtype, :problemnumber)
+    params.require(:assignment).permit(:name, :description, :duedate)
   end
 
 end
