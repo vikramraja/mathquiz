@@ -24,18 +24,24 @@
                     Options 
                     <span class="icon-cog icon-white"></span><span class="caret"></span>
                 </a>
-                <ul class="dropdown-menu">
-                    <li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
-                    <li><a href="#"><span class="icon-trash"></span> Delete</a></li>
+                <ul class="dropdown-menu" role = "menu">
+                    <% if current_user.role == "teacher" %>
+                        <%= link_to "Add Course", new_course_path, :method => :get %>
+                    <li><a href="#"><span class="icon-wrench"></span> Add Assignment</a></li>
+                    <li><a href="#"><span class="icon-trash"></span> Add Course</a></li>
+                    <li><a href="#"><span class="icon-trash"></span> Add Students</a></li>
+                    <% end %>
+
+                    <li><a href="#"><span class="icon-trash"></span> Edit Profile Picture</a></li>
                 </ul>
             </div>
         </div>
-</div>
+    </div>
 </div>
 
-<% if current_user.role == "teacher" %>
-<%= link_to "New Course", new_course_path, :method => :get %>
-<% end %>
+
+
+
 <h3>Course List</h3>
 <% @courses.each do |c| %>
 	<%= c.name %> 
