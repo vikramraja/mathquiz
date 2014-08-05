@@ -3,7 +3,7 @@
 # Table name: users
 #
 #  id                     :integer          not null, primary key
-#  role                   :string(255)
+#  role                   :string(255)      default("teacher")
 #  firstname              :string(255)
 #  lastname               :string(255)
 #  created_at             :datetime

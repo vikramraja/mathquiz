@@ -2,9 +2,12 @@ class AssignmentsController < ApplicationController
 # add before_actions to this controller
 
   def index
-    @firstname = current_user.firstname
-    @lastname = current_user.lastname
-    @courses = current_user.courses
+    unless current_user == nil
+      @firstname = current_user.firstname
+      @lastname = current_user.lastname
+      @courses = current_user.courses
+
+    end
   end
 
   def new
@@ -12,6 +15,7 @@ class AssignmentsController < ApplicationController
   end
 
   def create
+    
 
     @assignment = Assignment.new(assignment_params)
     @assignment.creator_id = current_user.id
@@ -19,7 +23,7 @@ class AssignmentsController < ApplicationController
 
     
     #need to connect the 
-    @assignment.topic = Topic.create([{ operand: params[:problemtype] }, { difficulty: params[:problemdifficulty] }])
+    @assignment.topic = Topic.create([{ operand: params[:problemtype] }, { difficulty: params[:difficulty] }])
 
     @assignment.save
     redirect_to assignments_path
@@ -29,7 +33,7 @@ class AssignmentsController < ApplicationController
   private
 
   def assignment_params
-    params.require(:assignment).permit(:name, :description, :duedate)
+    params.require(:assignment).permit(:name, :description, :duedate, :course_id)
   end
 
 end

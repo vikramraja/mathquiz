@@ -3,6 +3,9 @@
 
 <%= form_for(@assignment) do |f| %>
 
+<p>Course name:</p>
+
+<%= f.select :course_id, options_for_select(current_user.courses.map{|c| [c.name, c.id]}) %>
 
   <div><%= f.label :name %><br />
   <%= f.text_field :name %></div>
@@ -14,7 +17,7 @@
   <%= f.date_field :duedate %></div>
   <div>
   	<p>What type of math problems?</p>
-  	<%=select_tag :difficulty, options_for_select([ "Addition", "Subtraction", "Multiplication" ], "Addition") %>
+  	<%=select_tag :problemtype, options_for_select([ "Addition", "Subtraction", "Multiplication" ], "Addition") %>
   </div>
 
   <div>

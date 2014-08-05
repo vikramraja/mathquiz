@@ -1,4 +1,4 @@
-
+<% unless current_user == nil %>
 <h1>Welcome to your dashboard!</h1>
 
 <!-- Add show to all courses, and within the course, all assignments -->
@@ -41,14 +41,26 @@
 	<%= c.description %> 
 
 	<br><br>
-	<% c.assignments.each do |a| %>
-		<%= a.name %>
+
+
+
+    <% if @assignments != nil %>
+	<% @assignments.each do |a| %>
+        hey
+    	<%= a.name %>
 		<%= a.description %>
-		<% if @user.role == "student" %>
+		<% if current_user.role == "student" %>
+            <p>hey hey hey</p>
 			<%= render "studentactions", a: a %>
 		<% else %>
 			<%= render "teacheractions", a: a %>
 		<% end %>
 	<% end %>
+    <% else %>
+    <p>You have no assignments to display</p>
+    <% end %>
+
+<% end %>
+
 <% end %>
 

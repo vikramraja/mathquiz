@@ -8,7 +8,9 @@ class CoursesController < ApplicationController
 		@course = Course.new(course_params)
 		if @course.save!
 
+
 			@course.users << current_user
+
 
 			student1 = User.invite!(:email => params[:student1email], 
 			:firstname => params[:student1name], :role => "student", )
@@ -20,8 +22,8 @@ class CoursesController < ApplicationController
 
 			@course.users << student2	
 			# success
-
 			redirect_to new_assignment_path
+
 		else
 			#this failed, and that sucks so we will
 			raise
