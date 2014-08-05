@@ -34,7 +34,7 @@ class QuizzesController < ApplicationController
 	private
 
 	def numGen(mytopic)
-		if mytopic.difficulty == "easy"
+		if mytopic.difficulty == "hard"
 			return rand(100...999)
 		elsif mytopic.difficulty == "medium"
 			return rand(10...99)
