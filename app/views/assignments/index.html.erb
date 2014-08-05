@@ -7,7 +7,7 @@
 
 <% @courses.each do |c| %>
 	<%= c.name %>
-	<%= c.description %>
+	<%= c.description %> <br><br>
 	<% c.assignments.each do |a| %>
 		<%= a.name %>
 		<%= a.description %>
