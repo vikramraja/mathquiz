@@ -14,16 +14,18 @@ class QuizzesController < ApplicationController
 		end
 
 		while find_challenger == true
-
 			potential_challenger = Users.where(course_id: @quiz.assignment.course_id).pluck.sample
 			unless  Users.find(potential_challenger).role == "teacher"
 				@quiz.challenger << Users.find(potential_challenger)
 				return false
 
 			end
-
-
 		end
+
+	def play
+
+		Quiz.create
+
 
 		# render the quiz page for the creator
 

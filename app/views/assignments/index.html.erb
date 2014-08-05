@@ -1,10 +1,41 @@
 
-<h1>Hey [user] here's whats new!</h1>
+<h1>Welcome to your dashboard!</h1>
 
 <!-- Add show to all courses, and within the course, all assignments -->
 
 <!-- Show logic -->
 
+<br>
+<div class="container-fluid well span6">
+	<div class="row-fluid">
+        <div class="span2" >
+		    <img src="https://secure.gravatar.com/avatar/de9b11d0f9c0569ba917393ed5e5b3ab?s=140&r=g&d=mm" class="img-circle">
+        </div>
+        
+        <div class="span8">
+            <h3><%= "#{@firstname}" + "<-Name->" + "#{@lastname}" %></h3>
+            <h6>Email: MyEmail@servidor.com</h6>
+            <h6>Role: Teacher/Student</h6>
+        </div>
+        
+        <div class="span2">
+            <div class="btn-group">
+                <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+                    Options 
+                    <span class="icon-cog icon-white"></span><span class="caret"></span>
+                </a>
+                <ul class="dropdown-menu">
+                    <li><a href="#"><span class="icon-wrench"></span> Modify</a></li>
+                    <li><a href="#"><span class="icon-trash"></span> Delete</a></li>
+                </ul>
+            </div>
+        </div>
+</div>
+</div>
+
+
+
+<h3>Course List:</h3>
 <% @courses.each do |c| %>
 	<%= c.name %>
 	<%= c.description %> <br><br>
