@@ -33,8 +33,9 @@
 </div>
 </div>
 
-
-
+<% if current_user.role == "teacher" %>
+<%= link_to "New Course", new_course_path, :method => :get %>
+<% end %>
 <h3>Course List</h3>
 <% @courses.each do |c| %>
 	<%= c.name %> 
@@ -50,7 +51,6 @@
     	<%= a.name %>
 		<%= a.description %>
 		<% if current_user.role == "student" %>
-            <p>hey hey hey</p>
 			<%= render "studentactions", a: a %>
 		<% else %>
 			<%= render "teacheractions", a: a %>

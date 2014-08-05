@@ -21,9 +21,10 @@ class AssignmentsController < ApplicationController
     @assignment.creator_id = current_user.id
     @assignment.status = "open"
 
-    
-    #need to connect the 
-    @assignment.topic = Topic.create([{ operand: params[:problemtype] }, { difficulty: params[:difficulty] }])
+   
+
+
+    @assignment.create_topic(operand: params[:problemtype] , difficulty: params[:difficulty] )
 
     @assignment.save
     redirect_to assignments_path
