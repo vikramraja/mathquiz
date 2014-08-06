@@ -6,7 +6,15 @@ class QuizzesController < ApplicationController
 		@quiz.status = "open"
 		@quiz.creator_score = 0
 		@quiz.challenger_score = 0
-		@quiz.assignment_id = params[:assignment]
+		@quiz.assignment_id = params[:assignment_id]
+
+# possiblenested route. 
+# /quizzes?assignment_id = 4 
+# in rails, we do quizzes_path and the arguments of this 
+
+
+
+
 		# I can access the topic using @quiz.topic
 		@quiz.assignment.problemnumber.times do 
 			problem = Problem.new(item1: numGen(@quiz.topic), item2: numGen(@quiz.topic))
@@ -30,6 +38,14 @@ class QuizzesController < ApplicationController
 
 
 	end
+
+	def show 
+
+		if Quiz.where(challenger_id: current_user.id) != nil
+			Quiz.create
+
+		else
+			#render this other tweet. 
 
 	private
 

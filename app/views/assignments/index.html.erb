@@ -34,10 +34,11 @@
 </div>
 
 <% if current_user.role == "teacher" %>
-<%= link_to "New Course", new_course_path, :method => :get %>
+<%= link_to "New Course", new_course_path, :method => :get %> <br>
+<%= link_to "New Assignment", new_assignment_path, :method => :get %>
 <% end %>
 <h3>Course List</h3>
-<% @courses.each do |c| %>
+<% current_user.courses.each do |c| %>
 	<%= c.name %> 
 	<%= c.description %> 
 
@@ -45,8 +46,8 @@
 
 
 
-    <% if @assignments != nil %>
-	<% @assignments.each do |a| %>
+    <% if c.assignments != nil %>
+	<% c.assignments.each do |a| %>
         hey
     	<%= a.name %>
 		<%= a.description %>
