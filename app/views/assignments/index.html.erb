@@ -1,5 +1,5 @@
 <% unless current_user == nil %>
-<h1> Welcome to your dashboard <%= @firstname %> </h1>
+<h1> Welcome to your Dashboard, <%= @firstname %>! </h1>
 
 <!-- Add show to all courses, and within the course, all assignments -->
 
@@ -39,10 +39,6 @@
 </div>
 
 
-<% if current_user.role == "teacher" %>
-<%= link_to "New Course", new_course_path, :method => :get %> <br>
-<%= link_to "New Assignment", new_assignment_path, :method => :get %>
-<% end %>
 
 
 
@@ -50,12 +46,7 @@
 <% current_user.courses.each do |c| %>
 	<%= c.name %> 
 	<%= c.description %> 
-
-
 	<br><br>
-
-
-
     <% if c.assignments != nil %>
 	<% c.assignments.each do |a| %>
         hey
