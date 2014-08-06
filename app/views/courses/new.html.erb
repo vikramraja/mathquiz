@@ -11,20 +11,20 @@
       <%= f.text_field :description, value: params[:description] %></div>
    
    <% if params[:numstudents] == nil %>
-      <div><%= label_tag :numstudents %><br />
+      <div><%= label_tag :numstudents, "Number Of Students" %><br />
       <%= number_field_tag :numstudents %></div>
     <% end %>
 
     <% if params[:numstudents] %>
-      
+      <br>
       Please fill in the student names and emails below. 
 
       <% params[:numstudents].to_i.times do |index| %>
 
-      <div><%= label_tag :studentname %><br />
+      <div><%= label_tag :studentname, "Name" %><br />
       <%= text_field_tag "studentname[]" %></div>
         
-      <div><%= label_tag :email %><br />
+      <div><%= label_tag :email, "Email" %><br />
       <%= email_field_tag "email[]" %></div>
 
     <% end %>
