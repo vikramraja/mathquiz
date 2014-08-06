@@ -1,7 +1,8 @@
 class QuizzesController < ApplicationController
 
 	def create 
-		if has_existing_unfinished_quiz == false
+		render_quiz_id = has_existing_unfinished_quiz
+		if render_quiz_id == false
 			# if the current user equals a challenger id of another quiz in this assignment
 			@quiz = Quiz.new()
 			@quiz.creator_id = current_user.id
@@ -24,9 +25,11 @@ class QuizzesController < ApplicationController
 	
 				end
 			end
-
+			render_quiz_id = @quiz.id
 		else 
-			redirect_to #show the quiz that is already created, and its ID
+			@quiz = Quiz.find(render_quiz_id)
+		end
+			redirect_to @quiz
 		end
 
 
