@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140806093610) do
+ActiveRecord::Schema.define(version: 20140806163431) do
 
   create_table "assignments", force: true do |t|
     t.datetime "duedate"
@@ -94,6 +94,10 @@ ActiveRecord::Schema.define(version: 20140806093610) do
     t.integer  "invited_by_id"
     t.string   "invited_by_type"
     t.integer  "invitations_count",      default: 0
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

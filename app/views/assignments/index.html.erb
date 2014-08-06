@@ -9,7 +9,7 @@
 <div class="container-fluid well span6">
 	<div class="row-fluid">
         <div class="span2" >
-		    <img src="http://s3.amazonaws.com/37assets/svn/765-default-avatar.png" width="100" height="100"  class="img-circle">
+              <%= image_tag current_user.photo.url(:thumb) %>
         </div>
         
         <div class="span8">
@@ -28,10 +28,9 @@
                     <% if current_user.role == "teacher" %>
                     <li><a href="/assignments/new"><span class="icon-wrench"></span> Add Assignment</a></li>
                     <li><a href="/courses/new"><span class="icon-wrench"></span> Add Course</a></li>
-                    <li><%= link_to "Add Student", "#", :data => { :toggle => 'modal', :target => '#myModal' } %></li>
+                    <li><%= link_to "Add Student", "#", :data => { :toggle => 'modal', :target => '#studentModal' } %></li>
                     <% end %>
-
-                    <li><a href="#"><span class="icon-wrench"></span> Edit Profile Picture</a></li>
+                    <li><%= link_to "Edit Profile Picture", "#", :data => { :toggle => 'modal', :target => '#myModal' } %></li>
                 </ul>
             </div>
         </div>
@@ -39,14 +38,49 @@
 </div>
 
 
-<!-- Button trigger modal -->
-
-
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
+      </div>
+      <div class="modal-body">
+
+    <%= form_for(current_user, url: registration_path(:user), html: { method: :put }) do |f| %>
+        <%= f.file_field :photo %>
+
+        <div><%= f.label :email %><br />
+        <%= f.email_field :email, autofocus: true %></div>
+
+        <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
+          <%= f.password_field :password, autocomplete: "off" %></div>
+
+        <div><%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
+
+        <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
+          <%= f.password_field :current_password, autocomplete: "off" %></div>
+      
+         <div class="modal-footer">
+            <div><%= f.submit "Submit", class: "btn btn-primary" %></div> <br>     
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <% end %>
+
+        </div>
+     </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<!-- Modal for add student -->
+<div class="modal fade" id="studentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -68,7 +102,7 @@
 
       </div>
       <div class="modal-footer">
-        <div><%= f.submit "Submit",  class: "btn btn-primary" %></div> <br>
+        <div><%= f.submit "Submit", class: "btn btn-primary" %></div> <br>
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         <% end %>
       </div>

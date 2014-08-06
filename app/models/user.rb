@@ -41,6 +41,12 @@ class User < ActiveRecord::Base
 	has_many :challenged_quizzes, foreign_key: :challenger_id, class_name: :quiz
 
 
+    has_attached_file :photo, 
+      :styles => { :medium => "300x300", :thumb => "200x200" }, 
+      :default_url => "default.png"
+
+    validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
+
 	private
     def default_values
       self.role ||= "teacher"
