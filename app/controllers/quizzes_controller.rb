@@ -47,6 +47,11 @@ class QuizzesController < ApplicationController
 		else
 			#render this other tweet. 
 
+		end
+
+	end
+	
+
 	private
 
 	def numGen(mytopic)
