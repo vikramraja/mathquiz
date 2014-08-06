@@ -37,6 +37,8 @@ class CoursesController < ApplicationController
 	end
 
 	def destroy
+		Course.find(params[:id]).destroy
+    redirect_to assignments_path, :flash => { :success => "Course removed." }
 	end
 
 

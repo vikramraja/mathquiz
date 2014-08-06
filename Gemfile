@@ -29,6 +29,8 @@ group :development do
 
 
 end
+
+gem 'pry'
 	
 # Use jquery as the JavaScript library
 gem 'jquery-rails'

@@ -7,7 +7,6 @@
 
 <%= Quiz.find(params[:id]).topic.operand %>
 
-<% binding.pry %>
 <% Quiz.find(params[:id]).problems.each do |e| %>
 
 <%= e.item1 %>

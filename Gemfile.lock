@@ -212,6 +212,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   paperclip
+  pry
   pry-byebug
   puma
   quiet_assets

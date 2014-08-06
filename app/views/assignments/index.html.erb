@@ -26,9 +26,13 @@
                 </a>
                 <ul class="dropdown-menu" role = "menu">
                     <% if current_user.role == "teacher" %>
-                    <li><a href="/assignments/new"><span class="icon-wrench"></span> Add Assignment</a></li>
-                    <li><a href="/courses/new"><span class="icon-wrench"></span> Add Course</a></li>
-                    <li><%= link_to "Add Student", "#", :data => { :toggle => 'modal', :target => '#studentModal' } %></li>
+                      <li><a href="/courses/new"><span class="icon-wrench"></span> Add Course</a></li>
+                      
+                      <% if current_user.courses.any? %>
+
+                        <li><a href="/assignments/new"><span class="icon-wrench"></span> Add Assignment</a></li>
+                        <li><%= link_to "Add Student", "#", :data => { :toggle => 'modal', :target => '#studentModal' } %></li>
+                      <% end %>
                     <% end %>
                     <li><%= link_to "Edit Profile Picture", "#", :data => { :toggle => 'modal', :target => '#myModal' } %></li>
                 </ul>
@@ -112,26 +116,47 @@
 
 
 <h3>Course List</h3>
-<% current_user.courses.each do |c| %>
-	<%= c.name %> 
-	<%= c.description %> 
-	<br><br>
-    <% if c.assignments != nil %>
-	<% c.assignments.each do |a| %>
-        hey
-    	<%= a.name %>
-		<%= a.description %>
-		<% if current_user.role == "student" %>
-			<%= render "studentactions", a: a %>
-		<% else %>
-			<%= render "teacheractions", a: a %>
-		<% end %>
-	<% end %>
-    <% else %>
-    <p>You have no assignments to display</p>
-    <% end %>
 
-    <% end %>
+
+<% if current_user.role == "student" %>
+      <%= render "studentactions", a: a %>
+<% else %>
+<% current_user.courses.each do |c| %>
+	<h4><%= c.name %></h4> 
+	<%= c.description %> 
+  <%= link_to "Delete", course_path(c.id), :confirm => "Are you sure?", :method=>:delete %>
+	<br><br>
+  <% if c.assignments != nil %>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <td>Names :)</td>
+            <% c.assignments.each do |a| %>
+              <td><%= a.name %></td>
+            <% end %>
+          </tr>
+        </thead>
+        <tbody>
+          <% c.users.each_with_index do |u, index| %>
+            <% if index != 0 %>           
+              <tr>
+                <td><%= u.firstname %></td>
+                <!-- BONITA PUT HERE THE INFOR FOR THE NAME -->
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% else %>
+    <p>You have no assignments to display</p>
+  <% end %>
+<% end %>
+<% end %>
+
+
+
 
 <% end %>
 
