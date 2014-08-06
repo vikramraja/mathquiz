@@ -1,4 +1,4 @@
 <ul>
-	<li>Play<%= link_to quizzes_path, {:assignment_id => a.id}%></li>
+	<li>Play <%= link_to "here", quizzes_path(assignment_id: a.id), method: :post %></li>
 	<!-- link to quizzes_path method: :post -->
 </ul>

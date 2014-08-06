@@ -18,9 +18,9 @@ class QuizzesController < ApplicationController
 			end
 	
 			while find_challenger == true
-				potential_challenger = Users.where(course_id: @quiz.assignment.course_id).pluck.sample
-				unless  Users.find(potential_challenger).role == "teacher"
-					@quiz.challenger << Users.find(potential_challenger)
+				potential_challenger = User.where(course_id: @quiz.assignment.course_id).pluck.sample
+				unless  User.find(potential_challenger).role == "teacher"
+					@quiz.challenger << User.find(potential_challenger)
 					return false
 	
 				end
@@ -29,6 +29,7 @@ class QuizzesController < ApplicationController
 		else 
 			@quiz = Quiz.find(render_quiz_id)
 		end
+		binding.pry
 			redirect_to @quiz
 		end
 
@@ -70,13 +71,15 @@ class QuizzesController < ApplicationController
 	end
 
 	def has_existing_unfinished_quiz
-		Assignments.find_by_id(params[:assignment_id]).quizzes.each do |possiblequiz|
+		Assignment.find_by_id(params[:assignment_id]).quizzes.each do |possiblequiz|
 			if possiblequiz.challenger_id = current_user.id && possiblequiz.challenger_status == "open"
 			return possiblequiz.id
 
 		else
 
 			return false
+		end
+	end
 
 
 
