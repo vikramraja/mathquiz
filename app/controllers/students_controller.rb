@@ -1,10 +1,19 @@
 class StudentsController < ApplicationController
+	
+
 	def create
-
-		student = User.invite!(email: email, firstname: params[:studentname][i], :role => "student", )
+		@course= Course.find params[:course_id]
+		student = User.invite!(user_attributes)
 		@course.users << student
-
+		redirect_to assignments_path
 	end
+
+	private
+
+	def user_attributes
+		params.require(:user).permit(:email, :studentname).merge(:role => "student")
+	end
+
 
 end
 
