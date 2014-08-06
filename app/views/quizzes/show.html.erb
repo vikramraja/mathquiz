@@ -1,14 +1,13 @@
 <h2>Play game!</h2>
 
 
-
-<%= @quiz.assignment.topic.difficulty  %>
+<%= Quiz.find(params[:id]).topic.difficulty  %>
 <!-- Print a difficulty and the type of math -->
 
-<%= @quiz.assigment.topic.operand %>
+<%= Quiz.find(params[:id]).topic.operand %>
 
-
-<% @quiz.problem.each do |e| %>
+<% binding.pry %>
+<% Quiz.find(params[:id]).problems.each do |e| %>
 
 <%= e.item1 %>
 <%= e.item2 %>
