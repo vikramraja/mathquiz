@@ -12,16 +12,10 @@ class CoursesController < ApplicationController
 
 				@course.users << current_user
 
-
-				student1 = User.invite!(:email => params[:student1email], 
-				:firstname => params[:student1name], :role => "student", )
-
-				@course.users << student1
-
-				student2 = User.invite!(:email => params[:student2email], 
-				:firstname => params[:student2name], :role => "student", )	
-
-				@course.users << student2
+				params[:email].each_with_index do |email, i|
+					student = User.invite!(email: email, firstname: params[:studentname][i], :role => "student", )
+					@course.users << student
+				end
 
 					
 				# success
