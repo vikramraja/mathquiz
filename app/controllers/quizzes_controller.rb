@@ -14,9 +14,9 @@ class QuizzesController < ApplicationController
       # I can access the topic using @quiz.topic
       @quiz.save
       10.times do
-        problem = Problem.create(item1: numGen(@quiz.topic), item2: numGen(@quiz.topic))
+        problem = Problem.create!(item1: numGen(@quiz.topic), item2: numGen(@quiz.topic))
+
         @quiz.problems << problem
-        @quiz.save
       end
       
       find_challenger = true
@@ -61,9 +61,9 @@ class QuizzesController < ApplicationController
   private
 
   def numGen(mytopic)
-    if mytopic.difficulty == "hard"
+    if mytopic.difficulty.downcase == "hard"
       return rand(100...999)
-    elsif mytopic.difficulty == "medium"
+    elsif mytopic.difficulty.downcase == "medium"
       return rand(10...99)
     else
       return rand(1...9)
