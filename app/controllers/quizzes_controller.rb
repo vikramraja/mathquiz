@@ -24,6 +24,9 @@ class QuizzesController < ApplicationController
 	
 				end
 			end
+
+		else 
+			redirect_to #show the quiz that is already created, and its ID
 		end
 
 
