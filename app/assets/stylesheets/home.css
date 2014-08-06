@@ -1,0 +1,99 @@
+/******************TOP SECTION**************************/
+
+
+#top {
+	/* top makes the home section line up RIGHT after the nav bar*/
+	position:relative;
+	height: 20vh;
+	width: 100%;
+	/*background-image: url("springbok.jpg"); 
+	-webkit-background-size: cover;
+ 	-moz-background-size: cover;
+ 	-o-background-size: cover;
+	background-size: cover;
+*/
+	/*background-position:left;*/
+	/*background-repeat: no-repeat;*/
+	/*background-attachment: fixed;*/
+	/*background-size: cover;*/
+	margin-left: -20px;
+	padding-left: -10px;
+	min-width:1130px;
+} 
+
+.bg-img {
+	background-size: cover;
+	min-width: 100%;
+}
+
+/******************ABOUT SECTION**************************/
+
+
+
+
+#topblock {
+	background-color: rgba(125,125,125,.6);
+	width:80%;
+	border-radius: 40px;
+	padding:0;
+  	margin-left: auto;
+  	margin-right: auto;
+	text-align: center;
+	top: 100px;
+	height: 40%;
+}
+
+.profpics {
+	width: 120px;
+	height: 150px;
+}
+
+#about ul {
+	list-style: none;
+}
+
+#lianaleftblock {
+	background-color: rgba(125,125,125,.6);
+	width:40%;
+	border-radius: 40px;
+	padding:0;
+	position: inline-block;
+	margin-top: 10%;
+	top: 100px;
+	height: 40%;
+	float: left;
+}
+
+#vikramrightblock {
+	background-color: rgba(125,125,125,.6);
+	width:40%;
+	border-radius: 40px;
+	padding:0;	
+	margin-top: 10%;
+	position: inline-block;
+	top: 100px;
+	height: 40%;
+	float: right;
+}
+/******************CONTACT SECTION**************************/
+
+#contact {
+	text-align: center;
+
+} 
+
+
+#contact .head {
+	display: inline-block;
+	margin-top: 8%;
+}
+
+
+
+label {
+	color:black;
+	font-family: 'Helvetica-Neue', Helvetica, serif;
+	font-weight:100;
+	margin-bottom: 30px;
+}
+

@@ -47,7 +47,7 @@
             <li><a href="/#about">About</a></li>
             <li><a href="/#contact">Contact</a></li>
             <% if current_user %>
-            <li> <%= link_to "Log out", destroy_user_session_path, :method => :delete %> </li>
+            <li> <%= link_to "Log Out", destroy_user_session_path, :method => :delete %> </li>
             <% else %>
             <li><a href="users/sign_in">Sign In</a></li>
             <% end %>
@@ -55,20 +55,14 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
-
+    <%= yield :background %>
     <div class="container">
 
       <div class="starter-template">
         <br> <br> <br> 
-
-
-    </div>
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+      </div>
+    
     <%= yield %>
+    </div>
   </body>
 </html>

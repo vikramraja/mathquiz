@@ -1,4 +1,3 @@
-
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -18,3 +17,12 @@
 @import "bootstrap";
 @import "bootstrap-sprockets";
 
+.navbar {
+	clear: both;
+	overflow: hidden;
+}
+
+.sections {
+	clear: both;
+	overflow: hidden;
+}
