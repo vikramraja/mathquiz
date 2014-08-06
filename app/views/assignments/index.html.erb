@@ -1,5 +1,5 @@
 <% unless current_user == nil %>
-<h1>Welcome to your dashboard!</h1>
+<h1> Welcome to your dashboard <%= @firstname %> </h1>
 
 <!-- Add show to all courses, and within the course, all assignments -->
 
@@ -26,13 +26,12 @@
                 </a>
                 <ul class="dropdown-menu" role = "menu">
                     <% if current_user.role == "teacher" %>
-                        <%= link_to "Add Course", new_course_path, :method => :get %>
-                    <li><a href="#"><span class="icon-wrench"></span> Add Assignment</a></li>
-                    <li><a href="#"><span class="icon-trash"></span> Add Course</a></li>
-                    <li><a href="#"><span class="icon-trash"></span> Add Students</a></li>
+                    <li><a href="/assignments/new"><span class="icon-wrench"></span> Add Assignment</a></li>
+                    <li><a href="/courses/new"><span class="icon-wrench"></span> Add Course</a></li>
+                    <li><a href="#"><span class="icon-wrench"></span> Add Student</a></li>
                     <% end %>
 
-                    <li><a href="#"><span class="icon-trash"></span> Edit Profile Picture</a></li>
+                    <li><a href="#"><span class="icon-wrench"></span> Edit Profile Picture</a></li>
                 </ul>
             </div>
         </div>
@@ -47,26 +46,23 @@
 	<%= c.name %> 
 	<%= c.description %> 
 
-	<br><br>
-
-
-
     <% if @assignments != nil %>
-	<% @assignments.each do |a| %>
-        hey
-    	<%= a.name %>
-		<%= a.description %>
-		<% if current_user.role == "student" %>
-			<%= render "studentactions", a: a %>
-		<% else %>
-			<%= render "teacheractions", a: a %>
-		<% end %>
-	<% end %>
-    <% else %>
-    <p>You have no assignments to display</p>
-    <% end %>
+    	<% @assignments.each do |a| %>
+            hey
+        	<%= a.name %>
+    		<%= a.description %>
+    		<% if current_user.role == "student" %>
+    			<%= render "studentactions", a: a %>
+    		<% else %>
+    			<%= render "teacheractions", a: a %>
+    		<% end %>
+    	<% end %>
+        
+        <% else %>
+        <p>You have no assignments to display</p>
+        <% end %>
 
-<% end %>
+    <% end %>
 
 <% end %>
 

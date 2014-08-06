@@ -1,31 +1,40 @@
 <h2>New Course</h2>
 
 
-<%= form_for(@course) do |f| %>
+  <%= form_for(@course) do |f| %>
+
+  
+      <div><%= f.label :name %><br />
+      <%= f.text_field :name, value: params[:name] %></div>
+
+      <div><%= f.label :description %><br />
+      <%= f.text_field :description, value: params[:description] %></div>
+   
+   <% if params[:numstudents] == nil %>
+      <div><%= label_tag :numstudents %><br />
+      <%= number_field_tag :numstudents %></div>
+    <% end %>
+
+    <% if params[:numstudents] %>
+      
+      Please fill in the student names and emails below. 
+
+      <% params[:numstudents].to_i.times do |index| %>
+
+      <div><%= label_tag :studentname %><br />
+      <%= text_field_tag "studentname[]" %></div>
+        
+      <div><%= label_tag :email %><br />
+      <%= email_field_tag "email[]" %></div>
+
+    <% end %>
+
+      
+    <% end %>
 
 
-  <div><%= f.label :name %><br />
-
-  <%= f.text_field :name, value: "Hi" %></div>
-
-  <div><%= f.label :description %><br />
-  <%= f.text_field :description, value: "Hi" %></div>
-
- 
-  <%= label_tag :student1name %><br />
-  <%= text_field_tag :student1name, "Hi" %>
-
- <br /> <%= label_tag :student1email %><br />
-  <%= email_field_tag :student1email, "Hi@hi.com" %>
-
-  <br /><%= label_tag :student2name %><br />
-  <%= text_field_tag :student2name, "Hi" %>
-
-  <br /><%= label_tag :student2email %><br />
-  <%= email_field_tag :student2email,"Hi@hi.vom" %>
-
-
-  <br><br>
-
-  <div><%= f.submit "Next" %></div>
+  <br>
+  
+  <div><%= f.submit "Next" %></div><br>
+  <a href="/assignments#">Go back to Dashboard</a>
 <% end %>

@@ -29,7 +29,8 @@
   	<p>How many problem sets?</p>
   	<%= f.select :problemnumber, [["1 Set", 1],["2 Sets",2],["3 Sets",3]] %>
   </div>
+  <br>
   
-
-  <div><%= f.submit "Dashboard" %></div>
+  <div><%= f.submit "Submit Assignment" %></div>
+  <a href="/assignments#">Skip and go to Dashboard</a>
 <% end %>
