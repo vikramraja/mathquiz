@@ -3,7 +3,6 @@ class AssignmentsController < ApplicationController
 
   def index
     unless current_user == nil
-      binding.pry
       @firstname = current_user.firstname
       @lastname = current_user.lastname
       @courses = current_user.courses

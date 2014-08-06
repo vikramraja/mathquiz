@@ -21,7 +21,9 @@ class CoursesController < ApplicationController
 				student2 = User.invite!(:email => params[:student2email], 
 				:firstname => params[:student2name], :role => "student", )	
 
-				@course.users << student2	
+				@course.users << student2
+
+					
 				# success
 				redirect_to new_assignment_path
 
