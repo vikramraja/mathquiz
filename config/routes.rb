@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :courses
   resources :assignments
 
-
+  resources :students, :only => [:create]
   resources :quizzes
 
   # resources :home, :only => [:index]

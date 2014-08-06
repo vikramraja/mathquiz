@@ -2,6 +2,7 @@ class AssignmentsController < ApplicationController
 # add before_actions to this controller
 
   def index
+    @student = User.new
     unless current_user == nil
       @firstname = current_user.firstname
       @lastname = current_user.lastname
