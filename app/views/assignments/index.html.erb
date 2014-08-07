@@ -119,7 +119,6 @@
 
 
 <% if current_user.role == "student" %>
-      <%= render "_studentactions", a: a %>
 <% else %>
 <% current_user.courses.each do |c| %>
 	<h4><%= c.name %></h4> 
