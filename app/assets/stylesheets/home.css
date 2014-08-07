@@ -34,7 +34,7 @@
 
 
 #topblock {
-	background-color: rgba(125,125,125,.9);
+	background-color: rgba(255,109,89,.9);
 	width:80%;
 	border-radius: 40px;
 	padding:0;
@@ -55,11 +55,12 @@
 }
 
 #lianaleftblock {
-	background-color: rgba(125,125,125,.9);
-	width:40%;
+	background-color: rgba(255,109,89,.9);
+	width:45%;
 	border-radius: 40px;
 	padding:0;
 	position: inline-block;
+	text-align: center;
 	margin-top: 10%;
 	top: 100px;
 	height: 40%;
@@ -67,8 +68,9 @@
 }
 
 #vikramrightblock {
-	background-color: rgba(125,125,125,.9);
-	width:40%;
+	background-color: rgba(255,109,89,.9);
+	width:45%;
+	text-align: center;
 	border-radius: 40px;
 	padding:0;	
 	margin-top: 10%;
@@ -81,7 +83,7 @@
 
 #contact {
 	text-align: center;
-	background-color: rgba(125,125,125,.9);
+	background-color: rgba(255,109,89,.9);
 	width:40%;
 	border-radius: 40px;
 	padding:0;
