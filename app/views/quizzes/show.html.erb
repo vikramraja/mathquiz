@@ -6,9 +6,9 @@
 
 <% Quiz.find(params[:id]).problems.each do |e| %>
 
-<%= form_tag(controller: :quizzes, action: :grade, method: :patch) %>
-<div><%= display_problem(e.item1, e.item2, Quiz.find(params[:id]).topic.operand) %></div>
-  <div><%= label_tag :quiz_problem %><br />
+<%= form_tag(quiz_path, method: :patch) %>
+
+  <div><%= label_tag display_problem(e.item1, e.item2, Quiz.find(params[:id]).topic.operand) %><br />
       <%= text_field_tag "quiz_answers[]" %></div>
 <!-- prints out the numbers associated with every time of problem -->
 

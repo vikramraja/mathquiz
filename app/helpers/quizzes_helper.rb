@@ -14,7 +14,9 @@ module QuizzesHelper
 	end
 
 	def display_problem(item1, item2, operand)
-		return item1.to_s + " " + operand+ " " + item2.to_s
+		return item1.to_s + " " + operandifier(operand)+ " " + item2.to_s
+	end
+
 
 
 			

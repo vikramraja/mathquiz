@@ -18,7 +18,7 @@ class QuizzesController < ApplicationController
 
         @quiz.problems << problem
       end
-      
+
       find_challenger = true
 
 
@@ -57,40 +57,104 @@ class QuizzesController < ApplicationController
 
   end
 
-  def update 
-    logger.debug "reached the controller"
-  end
+  def update
+    @quiz = Quiz.find(params[:id])
 
-
-
-  private
-
-  def numGen(mytopic)
-    if mytopic.difficulty.downcase == "hard"
-      return rand(100...999)
-    elsif mytopic.difficulty.downcase == "medium"
-      return rand(10...99)
+    if current_user.id == @quiz.challenger_id
+      @quiz.challenger_status = "closed"
     else
-      return rand(1...9)
+      @quiz.status = "closed"
     end
 
+    logger.debug "reached the controller"
+    correctanswer = []
+    @quiz.problems.each do |prob, index|
+      binding.pry
+      correctanswer[index]=prob.item1.send(operandifier(@quiz.topic.operand), prob.item2)
+    end
 
-
-  end
-
-  def has_existing_unfinished_quiz
-    Assignment.find_by_id(params[:assignment_id]).quizzes.each do |possiblequiz|
-      if possiblequiz.challenger_id = current_user.id && possiblequiz.challenger_status == "open"
-
-        return possiblequiz.id
-
-
+    correctanswer.each do |a, index|
+      if a == quiz_answers[index]
+        if current_user.id == quiz.challenger_id
+          quiz.challenger_score +=1
+        else
+          quiz.creator_score +=1
+        end
       end
     end
-    return false
+
+        redirect_to root_path
+      
+
   end
 
 
 
+    private
 
-end
+    def numGen(mytopic)
+      if mytopic.difficulty.downcase == "hard"
+        return rand(100...999)
+      elsif mytopic.difficulty.downcase == "medium"
+        return rand(10...99)
+      else
+        return rand(1...9)
+      end
+    end
+
+    def has_existing_unfinished_quiz
+      Assignment.find_by_id(params[:assignment_id]).quizzes.each do |possiblequiz|
+        if possiblequiz.challenger_id = current_user.id && possiblequiz.challenger_status == "open"
+          return possiblequiz.id
+        end
+      end
+      return false
+    end
+
+    def operandifier(operand) #outputs a string
+    word =operand.downcase 
+    if word == "addition"
+      return "+"
+
+    elsif word == "subtraction"
+      return "-"
+
+    elsif word == "multiplication"
+      return "*"
+    end
+  end
+
+    # def whatAmI(quiz)
+
+    #   if current_user.id == @quiz.challenger_id
+    #     return "challenger"
+    #   else
+    #     return "creator"
+    #   end
+    # end
+
+    # def whoAmI(quiz)
+    #   binding.pry
+    #   if current_user.id == quiz.challenger_id
+    #     return quiz.challenger_id
+    #   else
+    #     return quiz.creator_id
+    #   end
+    # end
+
+    # def whoAmI_status(quiz)
+
+    # end
+
+    # def whoAmI_score(quiz)
+    #   if current_user.id == quiz.challenger_id
+    #     return quiz.challenger_score
+    #   else
+    #     return quiz.creator_score
+    #   end
+    # end
+
+
+
+
+  end
