@@ -136,7 +136,7 @@
                 <% if findStudentQuizScore(a.id,current_user.id) == "Not Started" %>
                   <td> <%=  link_to "Play Now!", quizzes_path(assignment_id: a.id), method: :post, :class => "btn btn-warning" %></td> 
                 <% else %>
-                  <td> <%=  link_to "Play Again!", quiz_path(assignment_id: a.id), method: :post,  :class => "btn btn-success" %></td>
+                  <td> <%=  link_to "Play Again!", quizzes_path(assignment_id: a.id), method: :post,  :class => "btn btn-success" %></td>
                 <% end %>
               </tr>
           <% end %>
