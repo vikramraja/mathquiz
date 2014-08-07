@@ -8,35 +8,38 @@
 <br>
 <div class="container-fluid well span6">
 	<div class="row-fluid">
-        <div class="span2" >
+        
+        <div class="span2" id="prof_pic">
               <%= image_tag current_user.photo.url(:thumb) %>
         </div>
         
-        <div class="span8">
-            <h3><%= "#{@firstname}" + " " + "#{@lastname}" %></h3>
-            <h6>Email: <%= current_user.email %></h6>
-            <h6>Role: <%= current_user.role %></h6>
-        </div>
-        
-        <div class="span2">
-            <div class="btn-group">
-                <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
-                    Options 
-                    <span class="icon-cog icon-white"></span><span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role = "menu">
-                    <% if current_user.role == "teacher" %>
-                      <li><a href="/courses/new"><span class="icon-wrench"></span> Add Course</a></li>
-                      
-                      <% if current_user.courses.any? %>
+        <div id="user_info">
+          <div class="span8">
+              <h3><%= "#{@firstname}" + " " + "#{@lastname}" %></h3>
+              <h6>Email: <%= current_user.email %></h6>
+              <h6>Role: <%= current_user.role %></h6>
+          </div>
+          
+          <div class="span2">
+              <div class="btn-group">
+                  <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+                      Options 
+                      <span class="icon-cog icon-white"></span><span class="caret"></span>
+                  </a>
+                  <ul class="dropdown-menu" role = "menu">
+                      <% if current_user.role == "teacher" %>
+                        <li><a href="/courses/new"><span class="icon-wrench"></span> Add Course</a></li>
+                        
+                        <% if current_user.courses.any? %>
 
-                        <li><a href="/assignments/new"><span class="icon-wrench"></span> Add Assignment</a></li>
-                        <li><%= link_to "Add Student", "#", :data => { :toggle => 'modal', :target => '#studentModal' } %></li>
+                          <li><a href="/assignments/new"><span class="icon-wrench"></span> Add Assignment</a></li>
+                          <li><%= link_to "Add Student", "#", :data => { :toggle => 'modal', :target => '#studentModal' } %></li>
+                        <% end %>
                       <% end %>
-                    <% end %>
-                    <li><%= link_to "Edit Profile", "#", :data => { :toggle => 'modal', :target => '#myModal' } %></li>
-                </ul>
-            </div>
+                      <li><%= link_to "Edit Profile", "#", :data => { :toggle => 'modal', :target => '#myModal' } %></li>
+                  </ul>
+              </div>
+          </div>
         </div>
     </div>
 </div>
@@ -126,6 +129,7 @@
           <tr>
             <th>Quiz Names</th>
               <th>Score</th>
+              <th> </th>
           </tr>
         </thead>
         <tbody>

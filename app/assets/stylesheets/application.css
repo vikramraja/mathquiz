@@ -18,11 +18,36 @@
 @import "bootstrap-sprockets";
 
 .navbar {
+	background-color: rgba(69, 79,92,1);
+}
+
+.navbar-inverse .navbar-nav > li > a {
 	clear: both;
+	color: white;
 	overflow: hidden;
+	font-family: 'Unkempt', cursive, sans-serif;
+	font-size: 1.8em;
+
+}
+
+.navbar-inverse .navbar-nav > li > a:hover {
+	color: rgba(230, 53, 38, 1);
+}
+
+.navbar-brand {
+	padding-top: 7px;
+}
+
+.navbar .horizontal {
+	width: 250px;
+}
+
+body {
+	background-color: rgba(100,	196, 252, 1);!important;
 }
 
 .sections {
 	clear: both;
 	overflow: hidden;
 }
+

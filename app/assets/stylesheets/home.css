@@ -6,6 +6,7 @@
 	position:relative;
 	height: 20vh;
 	width: 100%;
+
 	/*background-image: url("springbok.jpg"); 
 	-webkit-background-size: cover;
  	-moz-background-size: cover;
@@ -25,7 +26,7 @@
 	background-size: cover;
 	min-width: 100%;
 	z-index: -100;
-	position: fixed; left: 0; top: 0; 
+	position: relative; left: 0; top: 0; 
 }
 
 /******************ABOUT SECTION**************************/
@@ -34,7 +35,7 @@
 
 
 #topblock {
-	background-color: rgba(255,109,89,.9);
+	background-color: rgba(255,255,255,.8);
 	width:80%;
 	border-radius: 40px;
 	padding:0;
@@ -55,7 +56,7 @@
 }
 
 #lianaleftblock {
-	background-color: rgba(255,109,89,.9);
+	background-color: rgba(255,255,255,.8);
 	width:45%;
 	border-radius: 40px;
 	padding:0;
@@ -68,7 +69,7 @@
 }
 
 #vikramrightblock {
-	background-color: rgba(255,109,89,.9);
+	background-color: rgba(255,255,255,.8);
 	width:45%;
 	text-align: center;
 	border-radius: 40px;
@@ -83,7 +84,7 @@
 
 #contact {
 	text-align: center;
-	background-color: rgba(255,109,89,.9);
+	background-color: rgba(255,255,255,.8);
 	width:40%;
 	border-radius: 40px;
 	padding:0;
