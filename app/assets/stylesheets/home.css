@@ -24,6 +24,8 @@
 .bg-img {
 	background-size: cover;
 	min-width: 100%;
+	z-index: -100;
+	position: fixed; left: 0; top: 0; 
 }
 
 /******************ABOUT SECTION**************************/
@@ -32,7 +34,7 @@
 
 
 #topblock {
-	background-color: rgba(125,125,125,.6);
+	background-color: rgba(125,125,125,.9);
 	width:80%;
 	border-radius: 40px;
 	padding:0;
@@ -53,7 +55,7 @@
 }
 
 #lianaleftblock {
-	background-color: rgba(125,125,125,.6);
+	background-color: rgba(125,125,125,.9);
 	width:40%;
 	border-radius: 40px;
 	padding:0;
@@ -65,7 +67,7 @@
 }
 
 #vikramrightblock {
-	background-color: rgba(125,125,125,.6);
+	background-color: rgba(125,125,125,.9);
 	width:40%;
 	border-radius: 40px;
 	padding:0;	
@@ -79,7 +81,15 @@
 
 #contact {
 	text-align: center;
-
+	background-color: rgba(125,125,125,.9);
+	width:40%;
+	border-radius: 40px;
+	padding:0;
+  	margin-left: auto;
+  	margin-right: auto;
+	text-align: center;
+	top: 80px;
+	height: 40%;
 } 
 
 

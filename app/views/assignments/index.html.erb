@@ -34,7 +34,7 @@
                         <li><%= link_to "Add Student", "#", :data => { :toggle => 'modal', :target => '#studentModal' } %></li>
                       <% end %>
                     <% end %>
-                    <li><%= link_to "Edit Profile Picture", "#", :data => { :toggle => 'modal', :target => '#myModal' } %></li>
+                    <li><%= link_to "Edit Profile", "#", :data => { :toggle => 'modal', :target => '#myModal' } %></li>
                 </ul>
             </div>
         </div>
@@ -119,21 +119,21 @@
 
 
 <% if current_user.role == "student" %>
-      <%= render "studentactions", a: a %>
+      <%= render "_studentactions", a: a %>
 <% else %>
 <% current_user.courses.each do |c| %>
 	<h4><%= c.name %></h4> 
-	<%= c.description %> 
-  <%= link_to "Delete", course_path(c.id), :confirm => "Are you sure?", :method=>:delete %>
+	<%= c.description %> <br>
+  <%= link_to "Delete Course", course_path(c.id), :confirm => "Are you sure?", :method=>:delete %>
 	<br><br>
-  <% if c.assignments != nil %>
+  
     <div class="table-responsive">
       <table class="table">
         <thead>
           <tr>
-            <td>Student Names</td>
+            <th>Student Names</th>
             <% c.assignments.each do |a| %>
-              <td><%= a.name %></td>
+              <th><%= a.name %></th>
             <% end %>
           </tr>
         </thead>
@@ -142,15 +142,16 @@
             <% if index != 0 %>           
               <tr>
                 <td><%= u.firstname %></td>
+                <% c.assignments.each do |a| %>
+                 <td><%=  findStudentQuizScore(a.id,u.id) %> </td>
+                 <% end %>
               </tr>
             <% end %>
           <% end %>
         </tbody>
       </table>
     </div>
-  <% else %>
-    <p>You have no assignments to display</p>
-  <% end %>
+
 <% end %>
 <% end %>
 
