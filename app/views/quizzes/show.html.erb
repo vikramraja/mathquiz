@@ -1,15 +1,25 @@
 <h2>Play game!</h2>
 
  
-
+<!-- Basic demonstration of the type of actions possible in this show view  -->
 <%= Quiz.find(params[:id]).topic.difficulty  %>
 <!-- Print a difficulty and the type of math -->
 
 <%= Quiz.find(params[:id]).topic.operand %>
-
+<!-- Shows the operand, which in this case is addition -->
 <% Quiz.find(params[:id]).problems.each do |e| %>
 
 <%= e.item1 %>
 <%= e.item2 %>
 
+
+
+<% Quiz.find(params[:id]).problems.each do |e| %>
+<div><%= display_problem(e.item1, e.item2, Quiz.find(params[:id]).topic.operand) %></div>
+  <div><%= label_tag :quiz_problem %><br />
+      <%= text_field_tag "quiz_answers[]" %></div>
+<!-- prints out the numbers associated with every time of problem -->
+
 <% end %>
+
+<div><%= submit_tag "Submit Assignment" %></div>
