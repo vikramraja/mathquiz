@@ -115,6 +115,40 @@
 </div>
 
 <% if current_user.role == "student" %>
+  <h3>Course List</h3>
+<% current_user.courses.each do |c| %>
+  <h4><%= c.name %></h4> 
+  <%= c.description %> <br><br>
+  
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Quiz Names</th>
+              <th>Score</th>
+          </tr>
+        </thead>
+        <tbody>
+            <% c.assignments.each do |a| %>
+              <tr>
+                <td><%= a.name %></td>
+                <td><%=  findStudentQuizScore(a.id,current_user.id) %> </td> 
+                <% if findStudentQuizScore(a.id,current_user.id) == "Not Started" %>
+                <td> <%=  link_to "Learn More", quizzes_path(assignment_id: a.id), :class => "btn btn-success" %>
+                  <!-- <button type="button" class="btn btn-warning">Play Now!</button>  -->
+                </td> 
+                <!-- link_to "Learn More", menus_path, :class => "btn btn-inverse" -->
+                <% else %>
+                <td> <button type="button" class="btn btn-success">Play Again!</button> </td> 
+                <% end %>
+              </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+    <% end %>
+
+
 <% else %>
 <h3>Course List</h3>
 <% current_user.courses.each do |c| %>
