@@ -57,6 +57,11 @@ class QuizzesController < ApplicationController
 
   end
 
+  def update 
+    logger.debug "reached the controller"
+  end
+
+
 
   private
 
