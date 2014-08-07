@@ -1,12 +1,14 @@
 <h2>Play game!</h2>
 
+<%= challengestatement %>
+
  
 
 
-
+<%= form_tag(quiz_path, method: :patch) do %>
 <% Quiz.find(params[:id]).problems.each do |e| %>
 
-<%= form_tag(quiz_path, method: :patch) %>
+
 
   <div><%= label_tag display_problem(e.item1, e.item2, Quiz.find(params[:id]).topic.operand) %><br />
       <%= text_field_tag "quiz_answers[]" %></div>
@@ -15,3 +17,6 @@
 <% end %>
 
 <div><%= submit_tag "Submit Quiz" %></div>
+
+<% end %>
+

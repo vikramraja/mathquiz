@@ -18,6 +18,18 @@ module QuizzesHelper
 	end
 
 
+	def challengestatement
+		@quiz = Quiz.find(params[:id])
+		if current_user.id == @quiz.challenger_id 
+          return User.find(@quiz.creator_id).firstname + " has challenged you! Good luck!"
+        else 
+          return "You have challenged " + User.find(@quiz.challenger_id).firstname + "! Good luck!"
+       end 
+
+   end
+
+
+
 
 
 

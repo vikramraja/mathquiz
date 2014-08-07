@@ -1,7 +1,9 @@
 class QuizzesController < ApplicationController
 
   def create
+
     render_quiz_id = has_existing_unfinished_quiz
+ 
     if render_quiz_id == false
       # if the current user equals a challenger id of another quiz in this assignment
       @quiz = Quiz.new
@@ -15,6 +17,7 @@ class QuizzesController < ApplicationController
       @quiz.save
       10.times do
         problem = Problem.create!(item1: numGen(@quiz.topic), item2: numGen(@quiz.topic))
+  
 
         @quiz.problems << problem
       end
@@ -22,13 +25,22 @@ class QuizzesController < ApplicationController
       find_challenger = true
 
 
+
       while find_challenger == true
+ 
         potential_challenger = Course.find(Assignment.find(@quiz.assignment_id).course_id).users.pluck(:id).sample
-        unless  User.find(potential_challenger).role == "teacher"
+        if User.find(potential_challenger).role != "teacher"
+          
           @quiz.challenger = User.find(potential_challenger)
           find_challenger = false
+          @quiz.save
+
 
         end
+        if @quiz.challenger == nil
+          raise
+        end
+
       end
 
       render_quiz_id = @quiz.id
@@ -68,20 +80,21 @@ class QuizzesController < ApplicationController
 
     logger.debug "reached the controller"
     correctanswer = []
-    @quiz.problems.each do |prob, index|
-      binding.pry
-      correctanswer[index]=prob.item1.send(operandifier(@quiz.topic.operand), prob.item2)
+    @quiz.problems.each_with_index do |prob, index|
+      correctanswer[index] = prob.item1.send(operandifier(@quiz.topic.operand), prob.item2)
     end
 
-    correctanswer.each do |a, index|
-      if a == quiz_answers[index]
-        if current_user.id == quiz.challenger_id
-          quiz.challenger_score +=1
+    correctanswer.each_with_index do |a, index|
+      binding.pry
+      if a == params[:quiz_answers][index].to_i
+        if current_user.id == @quiz.challenger_id
+          @quiz.challenger_score +=1
         else
-          quiz.creator_score +=1
+          @quiz.creator_score +=1
         end
       end
     end
+    @quiz.save
 
         redirect_to root_path
       
@@ -104,7 +117,7 @@ class QuizzesController < ApplicationController
 
     def has_existing_unfinished_quiz
       Assignment.find_by_id(params[:assignment_id]).quizzes.each do |possiblequiz|
-        if possiblequiz.challenger_id = current_user.id && possiblequiz.challenger_status == "open"
+        if possiblequiz.challenger_id == current_user.id && possiblequiz.challenger_status == "open"
           return possiblequiz.id
         end
       end
@@ -112,7 +125,7 @@ class QuizzesController < ApplicationController
     end
 
     def operandifier(operand) #outputs a string
-    word =operand.downcase 
+    word = operand.downcase 
     if word == "addition"
       return "+"
 
