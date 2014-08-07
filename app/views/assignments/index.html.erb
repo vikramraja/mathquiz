@@ -115,7 +115,6 @@
 </div>
 
 <% if current_user.role == "student" %>
-      
 <% else %>
 <h3>Course List</h3>
 <% current_user.courses.each do |c| %>
@@ -128,9 +127,9 @@
       <table class="table">
         <thead>
           <tr>
-            <td>Student Names</td>
+            <th>Student Names</th>
             <% c.assignments.each do |a| %>
-              <td><%= a.name %></td>
+              <th><%= a.name %></th>
             <% end %>
           </tr>
         </thead>
@@ -139,7 +138,9 @@
             <% if index != 0 %>           
               <tr>
                 <td><%= u.firstname %></td>
-                <!-- PUT HERE THE INFOR FOR THE NAME -->
+                <% c.assignments.each do |a| %>
+                 <td><%=  findStudentQuizScore(a.id,u.id) %> </td>
+                 <% end %>
               </tr>
             <% end %>
           <% end %>
