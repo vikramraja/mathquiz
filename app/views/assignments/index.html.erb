@@ -1,48 +1,41 @@
 <% unless current_user == nil %>
 <h1> Welcome to your Dashboard, <%= @firstname %>! </h1>
-
 <!-- Add show to all courses, and within the course, all assignments -->
-
 <!-- Show logic -->
-
 <br>
 <div class="container-fluid well span6">
-	<div class="row-fluid">
-        <div class="span2" >
-              <%= image_tag current_user.photo.url(:thumb) %>
-        </div>
-        
-        <div class="span8">
-            <h3><%= "#{@firstname}" + " " + "#{@lastname}" %></h3>
-            <h6>Email: <%= current_user.email %></h6>
-            <h6>Role: <%= current_user.role %></h6>
-        </div>
-        
-        <div class="span2">
-            <div class="btn-group">
-                <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
-                    Options 
-                    <span class="icon-cog icon-white"></span><span class="caret"></span>
-                </a>
-                <ul class="dropdown-menu" role = "menu">
-                    <% if current_user.role == "teacher" %>
-                      <li><a href="/courses/new"><span class="icon-wrench"></span> Add Course</a></li>
-                      
-                      <% if current_user.courses.any? %>
-
-                        <li><a href="/assignments/new"><span class="icon-wrench"></span> Add Assignment</a></li>
-                        <li><%= link_to "Add Student", "#", :data => { :toggle => 'modal', :target => '#studentModal' } %></li>
-                      <% end %>
-                    <% end %>
-                    <li><%= link_to "Edit Profile", "#", :data => { :toggle => 'modal', :target => '#myModal' } %></li>
-                </ul>
-            </div>
-        </div>
+  <div class="row-fluid">
+    <div class="span2" >
+      <%= image_tag current_user.photo.url(:thumb) %>
     </div>
+    
+    <div class="span8">
+      <h3><%= "#{@firstname}" + " " + "#{@lastname}" %></h3>
+      <h6>Email: <%= current_user.email %></h6>
+      <h6>Role: <%= current_user.role %></h6>
+    </div>
+    
+    <div class="span2">
+      <div class="btn-group">
+        <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
+          Options
+          <span class="icon-cog icon-white"></span><span class="caret"></span>
+        </a>
+        <ul class="dropdown-menu" role = "menu">
+          <% if current_user.role == "teacher" %>
+          <li><a href="/courses/new"><span class="icon-wrench"></span> Add Course</a></li>
+          
+          <% if current_user.courses.any? %>
+          <li><a href="/assignments/new"><span class="icon-wrench"></span> Add Assignment</a></li>
+          <li><%= link_to "Add Student", "#", :data => { :toggle => 'modal', :target => '#studentModal' } %></li>
+          <% end %>
+          <% end %>
+          <li><%= link_to "Edit Profile", "#", :data => { :toggle => 'modal', :target => '#myModal' } %></li>
+        </ul>
+      </div>
+    </div>
+  </div>
 </div>
-
-
-
 <!-- Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -52,37 +45,26 @@
         <h4 class="modal-title" id="myModalLabel">Edit Profile</h4>
       </div>
       <div class="modal-body">
-
-    <%= form_for(current_user, url: registration_path(:user), html: { method: :put }) do |f| %>
+        <%= form_for(current_user, url: registration_path(:user), html: { method: :put }) do |f| %>
         <%= f.file_field :photo %>
-
         <div><%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true %></div>
-
         <div><%= f.label :password %> <i>(leave blank if you don't want to change it)</i><br />
-          <%= f.password_field :password, autocomplete: "off" %></div>
-
+        <%= f.password_field :password, autocomplete: "off" %></div>
         <div><%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
+        <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
         <div><%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-          <%= f.password_field :current_password, autocomplete: "off" %></div>
-      
-         <div class="modal-footer">
-            <div><%= f.submit "Submit", class: "btn btn-primary" %></div> <br>     
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <% end %>
-
+        <%= f.password_field :current_password, autocomplete: "off" %></div>
+        
+        <div class="modal-footer">
+          <div><%= f.submit "Submit", class: "btn btn-primary" %></div> <br>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <% end %>
         </div>
-     </div>
+      </div>
     </div>
   </div>
 </div>
-
-
-
-
-
 <!-- Modal for add student -->
 <div class="modal fade" id="studentModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -92,9 +74,7 @@
         <h4 class="modal-title" id="myModalLabel">Add Student</h4>
       </div>
       <div class="modal-body">
-
         <%= form_for(@student, url: students_path) do |f| %>
-
         <div><%= f.label :firstname, "Name" %><br />
         <%= f.text_field :firstname %></div>
         
@@ -103,7 +83,6 @@
         <br>
         <p>Add to Course:</p>
         <%= select_tag :course_id, options_for_select(current_user.courses.map{|c| [c.name, c.id]}) %>
-
       </div>
       <div class="modal-footer">
         <div><%= f.submit "Submit", class: "btn btn-primary" %></div> <br>
@@ -113,75 +92,68 @@
     </div>
   </div>
 </div>
-
 <% if current_user.role == "student" %>
-  <h3>Course List</h3>
+<h3>Course List</h3>
 <% current_user.courses.each do |c| %>
-  <h4><%= c.name %></h4> 
-  <%= c.description %> <br><br>
-  
-    <div class="table-responsive">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Quiz Names</th>
-              <th>Score</th>
-          </tr>
-        </thead>
-        <tbody>
-            <% c.assignments.each do |a| %>
-              <tr>
-                <td><%= a.name %></td>
-                <td><%=  findStudentQuizScore(a.id,current_user.id) %> </td> 
-                <% if findStudentQuizScore(a.id,current_user.id) == "Not Started" %>
-                  <td> <%=  link_to "Play Now!", quizzes_path(assignment_id: a.id), :class => "btn btn-warning" %></td> 
-                <% else %>
-                  <td> <%=  link_to "Play Again!", quizzes_path(assignment_id: a.id), :class => "btn btn-success" %></td>
-                <% end %>
-              </tr>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-    <% end %>
+<h4><%= c.name %></h4>
+<%= c.description %> <br><br>
 
-
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Quiz Names</th>
+        <th>Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% c.assignments.each do |a| %>
+      <tr>
+        <td><%= a.name %></td>
+        <td><%=  findStudentQuizScore(a.id,current_user.id) %> </td>
+        <% if findStudentQuizScore(a.id,current_user.id) == "Not Started" %>
+        <td> <%=  link_to "Play Now!", quizzes_path(assignment_id: a.id), :class => "btn btn-warning" %></td>
+        <% else %>
+        <td> <%=  link_to "Play Again!", quizzes_path(assignment_id: a.id), :class => "btn btn-success" %></td>
+        <% end %>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<% end %>
 <% else %>
 <h3>Course List</h3>
 <% current_user.courses.each do |c| %>
-	<h4><%= c.name %></h4> 
-	<%= c.description %> <br>
-  <%= link_to "Delete Course", course_path(c.id), :confirm => "Are you sure?", :method=>:delete %>
-	<br><br>
-  
-    <div class="table-responsive">
-      <table class="table">
-        <thead>
-          <tr>
-            <th>Student Names</th>
-            <% c.assignments.each do |a| %>
-              <th><%= a.name %></th>
-            <% end %>
-          </tr>
-        </thead>
-        <tbody>
-          <% c.users.each_with_index do |u, index| %>
-            <% if index != 0 %>           
-              <tr>
-                <td><%= u.firstname %></td>
-                <% c.assignments.each do |a| %>
-                 <td><%=  findStudentQuizScore(a.id,u.id) %> </td>
-                 <% end %>
-              </tr>
-            <% end %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
+<h4><%= c.name %></h4>
+<%= c.description %> <br>
+<%= link_to "Delete Course", course_path(c.id), :confirm => "Are you sure?", :method=>:delete %>
+<br><br>
 
+<div class="table-responsive">
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Student Names</th>
+        <% c.assignments.each do |a| %>
+        <th><%= a.name %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <% c.users.each_with_index do |u, index| %>
+      <% if index != 0 %>
+      <tr>
+        <td><%= u.firstname %></td>
+        <% c.assignments.each do |a| %>
+        <td><%=  findStudentQuizScore(a.id,u.id) %> </td>
+        <% end %>
+      </tr>
+      <% end %>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 <% end %>
 <% end %>
-
-
 <% end %>
-
