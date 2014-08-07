@@ -114,13 +114,10 @@
   </div>
 </div>
 
-
-<h3>Course List</h3>
-
-
 <% if current_user.role == "student" %>
-      <%= render "studentactions", a: a %>
+      
 <% else %>
+<h3>Course List</h3>
 <% current_user.courses.each do |c| %>
 	<h4><%= c.name %></h4> 
 	<%= c.description %> <br>

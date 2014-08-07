@@ -59,7 +59,9 @@
       <div class="starter-template">
         <br> <br> <br> 
       </div>
-    
+      <%if flash[:alert] %>
+      <%= flash[:alert] %>
+      <% end %>
     <%= yield %>
     </div>
   </body>
