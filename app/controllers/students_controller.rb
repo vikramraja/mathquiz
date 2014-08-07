@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
 	private
 
 	def user_attributes
-		params.require(:user).permit(:email, :studentname).merge(:role => "student")
+		params.require(:user).permit(:email, :firstname).merge(:role => "student")
 	end
 
 

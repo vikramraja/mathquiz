@@ -34,7 +34,7 @@
                         <li><%= link_to "Add Student", "#", :data => { :toggle => 'modal', :target => '#studentModal' } %></li>
                       <% end %>
                     <% end %>
-                    <li><%= link_to "Edit Profile Picture", "#", :data => { :toggle => 'modal', :target => '#myModal' } %></li>
+                    <li><%= link_to "Edit Profile", "#", :data => { :toggle => 'modal', :target => '#myModal' } %></li>
                 </ul>
             </div>
         </div>
@@ -123,15 +123,15 @@
 <% else %>
 <% current_user.courses.each do |c| %>
 	<h4><%= c.name %></h4> 
-	<%= c.description %> 
-  <%= link_to "Delete", course_path(c.id), :confirm => "Are you sure?", :method=>:delete %>
+	<%= c.description %> <br>
+  <%= link_to "Delete Course", course_path(c.id), :confirm => "Are you sure?", :method=>:delete %>
 	<br><br>
-  <% if c.assignments != nil %>
+  
     <div class="table-responsive">
       <table class="table">
         <thead>
           <tr>
-            <td>Names :)</td>
+            <td>Student Names</td>
             <% c.assignments.each do |a| %>
               <td><%= a.name %></td>
             <% end %>
@@ -142,16 +142,14 @@
             <% if index != 0 %>           
               <tr>
                 <td><%= u.firstname %></td>
-                <!-- BONITA PUT HERE THE INFOR FOR THE NAME -->
+                <!-- PUT HERE THE INFOR FOR THE NAME -->
               </tr>
             <% end %>
           <% end %>
         </tbody>
       </table>
     </div>
-  <% else %>
-    <p>You have no assignments to display</p>
-  <% end %>
+
 <% end %>
 <% end %>
 
