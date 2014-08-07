@@ -134,12 +134,9 @@
                 <td><%= a.name %></td>
                 <td><%=  findStudentQuizScore(a.id,current_user.id) %> </td> 
                 <% if findStudentQuizScore(a.id,current_user.id) == "Not Started" %>
-                <td> <%=  link_to "Learn More", quizzes_path(assignment_id: a.id), :class => "btn btn-success" %>
-                  <!-- <button type="button" class="btn btn-warning">Play Now!</button>  -->
-                </td> 
-                <!-- link_to "Learn More", menus_path, :class => "btn btn-inverse" -->
+                  <td> <%=  link_to "Play Now!", quizzes_path(assignment_id: a.id), :class => "btn btn-warning" %></td> 
                 <% else %>
-                <td> <button type="button" class="btn btn-success">Play Again!</button> </td> 
+                  <td> <%=  link_to "Play Again!", quizzes_path(assignment_id: a.id), :class => "btn btn-success" %></td>
                 <% end %>
               </tr>
           <% end %>
@@ -184,8 +181,6 @@
 
 <% end %>
 <% end %>
-
-
 
 
 <% end %>
