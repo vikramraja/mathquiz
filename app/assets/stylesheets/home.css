@@ -1,5 +1,6 @@
 /******************TOP SECTION**************************/
-
+#frontpageimage {
+	border-bottom: 5px solid #D2DADF;}
 
 #top {
 	/* top makes the home section line up RIGHT after the nav bar*/
@@ -7,6 +8,7 @@
 	height: 20vh;
 	width: 100%;
 } 
+
 
 .bg-img {
 	background-size: cover;
@@ -29,7 +31,6 @@
 #abouttop p {
 	font-family: 'Unkempt', cursive, sans-serif;
 	color:black;
-	border-top:;
 	text-align:center;
 	font-size: 1.7em;
 	margin:0px;
@@ -45,8 +46,10 @@
 	font-family: 'Unkempt', cursive, sans-serif;
 }
 
+
+
 #someinfo {
-	font-size: 15px;
+	font-size: 16px;
 }
 
 #topblock {
@@ -73,29 +76,41 @@
 	width: 120px;
 	height: 150px;
 	border: 1px solid black;
+	margin-bottom: 10px;
 }
 
 
-#lianaleftblock {
+#bottomblocks {
 	list-style: none;
 	background-color: rgba(255,255,255,.8);
 	border-radius: 4px;
-	width:30%;
-	position: inline-block; 
+	width:85%;
+	/*position: inline-block; */
 	text-align: center;
-	padding-bottom: 10px;
-	margin-top: 4%;
-	margin-left: 8%;
+	padding-bottom: 5px;
+	margin-top: 2.5%;
+	margin-left: 7.5%;
 	top: -10px;
 	height: 40%;
-	float: left;
 	border: 1px solid #e3e3e3;
 
 }
 
-#vikramrightblock {
+
+
+#left {
+	float: left;
+	margin-left: 15%
+}
+
+#right {
+
+}
+
+
+/*#vikramrightblock {
 	list-style: none;
-	background-color: rgba(255,255,255,.8);
+	/*background-color: rgba(255,255,255,.8);
 	border-radius: 4px;
 	width:30%;
 	text-align: center;
@@ -108,7 +123,7 @@
 	float: right;
 	border: 1px solid #e3e3e3;
 
-}
+}*/
 /******************CONTACT SECTION**************************/
 
 #contact {

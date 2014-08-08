@@ -11,10 +11,9 @@
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
 </div>
-<div id="submitbutton">
-  <div><%= f.submit "Send me reset password instructions" %></div>
+<br>
+  <div><h5>Send me reset password instructions</h5><%= f.submit "Submit" %></div>
 <% end %>
-</div>
 
 <%= render "devise/shared/links" %>
 
