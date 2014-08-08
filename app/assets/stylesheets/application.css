@@ -17,8 +17,10 @@
 @import "bootstrap";
 @import "bootstrap-sprockets";
 
+/*.studentmodal-backdrop {background-color: rgba(100, 196, 252, 1); }*/
+
 .navbar {
-	background-color: rgba(69, 79,92,1);
+	background-color: rgba(69, 79,92,1); 
 }
 
 .navbar-inverse .navbar-nav > li > a {

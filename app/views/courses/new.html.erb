@@ -1,40 +1,35 @@
-<h2>New Course</h2>
-
-
-  <%= form_for(@course) do |f| %>
-
-  
+<body id="signinpage">
+  <div class="border-form-div">
+    <h2>New Course</h2>
+    <div id="form_style">
+      <%= form_for(@course) do |f| %>
+      
       <div><%= f.label :name %><br />
       <%= f.text_field :name, value: params[:name] %></div>
-
       <div><%= f.label :description %><br />
       <%= f.text_field :description, value: params[:description] %></div>
-   
-   <% if params[:numstudents] == nil %>
+      
+      <% if params[:numstudents] == nil %>
       <div><%= label_tag :numstudents, "Number Of Students" %><br />
       <%= number_field_tag :numstudents %></div>
-    <% end %>
-
-    <% if params[:numstudents] %>
+      <% end %>
+      <% if params[:numstudents] %>
       <br>
-      Please fill in the student names and emails below. 
-
+      Please fill in the student names and emails below.
       <% params[:numstudents].to_i.times do |index| %>
-
       <div><%= label_tag :studentname, "Name" %><br />
       <%= text_field_tag "studentname[]" %></div>
-        
+      
       <div><%= label_tag :email, "Email" %><br />
       <%= email_field_tag "email[]" %></div>
-
-    <% end %>
-
-      
-    <% end %>
-
-
-  <br>
-  
-  <div><%= f.submit "Next" %></div><br>
-  <a href="/assignments#">Go back to Dashboard</a>
-<% end %>
+      <% end %>
+      <% end %>
+       </div>
+      <br>
+      <div id="submitbutton">
+        <div><%= f.submit "Next" %></div><br>
+      </div>
+      <a href="/assignments#">Go back to Dashboard</a>
+      <% end %>
+    </div>
+  </body>
