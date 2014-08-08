@@ -69,7 +69,6 @@ class QuizzesController < ApplicationController
     end
 
     correctanswer.each_with_index do |a, index|
-      binding.pry
       if a == params[:quiz_answers][index].to_i
         if current_user.id == @quiz.challenger_id
           @quiz.challenger_score +=1
