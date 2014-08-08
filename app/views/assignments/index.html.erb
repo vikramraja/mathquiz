@@ -15,7 +15,6 @@
         <h4>Email: <%= current_user.email %></h4>
         <h4>Role: <%= current_user.role %></h4>
       </div>
-      
       <div class="span2">
         <div class="btn-group">
           <a class="btn dropdown-toggle btn-info" data-toggle="dropdown" href="#">
@@ -48,6 +47,7 @@
       </div>
       <div class="modal-body">
         <%= form_for(current_user, url: registration_path(:user), html: { method: :put }) do |f| %>
+        <strong>Profile picture</strong>
         <%= f.file_field :photo %>
         <div><%= f.label :email %><br />
         <%= f.email_field :email, autofocus: true %></div>
@@ -59,9 +59,12 @@
         <%= f.password_field :current_password, autocomplete: "off" %></div>
         
         <div class="modal-footer">
-          <div><%= f.submit "Submit", class: "btn btn-primary" %></div> <br>
+        <div id="submitbutton">
+          <div><%= f.submit "Submit"%></div> <br>
           <% end %>
         </div>
+        </div>
+
       </div>
     </div>
   </div>
@@ -84,10 +87,14 @@
         <p>Add to Course:</p>
         <%= select_tag :course_id, options_for_select(current_user.courses.map{|c| [c.name, c.id]}) %>
       </div>
-      <div class="modal-footer">
-        <div><%= f.submit "Submit", class: "btn btn-primary" %></div> <br>
-        <% end %>
-      </div>
+
+        <div class="modal-footer">
+        <div id="submitbutton">
+          <div><%= f.submit "Submit"%></div> <br>
+          <% end %>
+        </div>
+        </div>
+
     </div>
   </div>
 </div>

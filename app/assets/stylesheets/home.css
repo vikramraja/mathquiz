@@ -169,6 +169,7 @@ label {
 	background-position: bottom;*/
 	margin-top: 1%;
 	font-family: 'Unkempt', cursive, sans-serif;
+	text-align: center;
 
 }
 
@@ -178,6 +179,7 @@ label {
   margin: 0 auto 20px;
   background-color: rgba(255,255,255,.8);
   border-radius: 50px;
+  border: 1px solid #e3e3e3;
   box-shadow: 0 10px 10px rgba(0,0,0,.05);
 
 }
