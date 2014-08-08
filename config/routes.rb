@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # get 'teachers/addstudents'
-
-  devise_for :users
+  devise_for :users, :controllers => { :registrations => :registrations }
 
   resources :courses
   resources :assignments
