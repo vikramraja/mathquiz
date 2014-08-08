@@ -1,5 +1,9 @@
-<h2>Change your password</h2>
+<body id="signinpage">
 
+<div class="border-form-div">
+
+	<h2>Change your password</h2>
+<div id="form_style">
 <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
   <%= devise_error_messages! %>
   <%= f.hidden_field :reset_password_token %>
@@ -9,8 +13,14 @@
 
   <div><%= f.label :password_confirmation, "Confirm new password" %><br />
     <%= f.password_field :password_confirmation, autocomplete: "off" %></div>
-
+</div>
+<div id="submitbutton">
   <div><%= f.submit "Change my password" %></div>
 <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
+
+
+</div>
+</body>

@@ -1,5 +1,8 @@
-<h2><%= t "devise.invitations.new.header" %></h2>
+<body id="signinpage">
 
+<div class="border-form-div">
+<h2><%= t "devise.invitations.new.header" %></h2>
+<div id="form_style">
 <%= form_for resource, :as => resource_name, :url => invitation_path(resource_name), :html => {:method => :post} do |f| %>
   <%= devise_error_messages! %>
 
@@ -7,6 +10,13 @@
   <p><%= f.label field %><br />
   <%= f.text_field field %></p>
 <% end -%>
+</div>
 
+<div id="submitbutton">
   <p><%= f.submit t("devise.invitations.new.submit_button") %></p>
 <% end %>
+</div>
+
+
+</div>
+</body>

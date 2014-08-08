@@ -1,12 +1,23 @@
+<body id="signinpage">
+
+<div class="border-form-div">
+
 <h2>Resend unlock instructions</h2>
+<div id="form_style">
 
 <%= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f| %>
   <%= devise_error_messages! %>
 
   <div><%= f.label :email %><br />
   <%= f.email_field :email, autofocus: true %></div>
+</div>
 
+<div id="submitbutton">
   <div><%= f.submit "Resend unlock instructions" %></div>
 <% end %>
+</div>
 
 <%= render "devise/shared/links" %>
+
+</div>
+</body>
