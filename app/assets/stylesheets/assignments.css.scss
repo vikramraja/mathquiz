@@ -17,14 +17,17 @@ h1 {
 
 #prof_pic {
 	float: left;
-		position: inline-block; 
-
+	position: inline-block; 
+	margin-left: 30%;
 }
-
 
 #user_info {
 	float: right;
 	position: inline-block; 
+	margin-right: 30%
 
 }
 
+#dash {
+	font-family: 'Unkempt', cursive, sans-serif; 
+}

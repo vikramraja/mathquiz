@@ -31,7 +31,7 @@
 	color:black;
 	border-top:;
 	text-align:center;
-	font-size: 2em;
+	font-size: 1.7em;
 	margin:0px;
 	font-weight:lighter;
 	padding: 0;
@@ -64,12 +64,15 @@
 	top: -15px;
 	border-radius: 4px;
 	height: 40%;
+	border: 1px solid #e3e3e3;
+
 }
 
 
 .profpics {
 	width: 120px;
 	height: 150px;
+	border: 1px solid black;
 }
 
 
@@ -86,13 +89,14 @@
 	top: -10px;
 	height: 40%;
 	float: left;
+	border: 1px solid #e3e3e3;
+
 }
 
 #vikramrightblock {
 	list-style: none;
 	background-color: rgba(255,255,255,.8);
-		border-radius: 4px;
-
+	border-radius: 4px;
 	width:30%;
 	text-align: center;
 	margin-top: 4%;
@@ -102,6 +106,8 @@
 	top: -10px;
 	height: 40%;
 	float: right;
+	border: 1px solid #e3e3e3;
+
 }
 /******************CONTACT SECTION**************************/
 
@@ -117,12 +123,13 @@
 	text-align: center;
 	top: 80px;
 	height: 40%;
+	border: 1px solid #e3e3e3;
+
 } 
 
 
 #contact .head {
 	display: inline-block;
-	margin-top: 8%;
 }
 
 
@@ -139,8 +146,6 @@ label {
   width:30%;
   border-radius: 7px;
 }
-
-
 
 
 #signinpage {
