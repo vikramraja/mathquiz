@@ -6,20 +6,6 @@
 	position:relative;
 	height: 20vh;
 	width: 100%;
-
-	/*background-image: url("springbok.jpg"); 
-	-webkit-background-size: cover;
- 	-moz-background-size: cover;
- 	-o-background-size: cover;
-	background-size: cover;
-*/
-	/*background-position:left;*/
-	/*background-repeat: no-repeat;*/
-	/*background-attachment: fixed;*/
-	/*background-size: cover;*/
-	margin-left: -20px;
-	padding-left: -10px;
-	min-width:1130px;
 } 
 
 .bg-img {
@@ -33,50 +19,80 @@
 
 
 
+/*#abouttop {
+	background:rgba(255,159,128,.5);
+	border-top: 5px solid #D2DADF;
+	border-bottom: 5px solid #D2DADF;
+	min-width:100%;
+}*/
+
+#abouttop p {
+	font-family: 'Unkempt', cursive, sans-serif;
+	color:black;
+	border-top:;
+	text-align:left;
+	font-size: 2em;
+	margin:0px;
+	font-weight:lighter;
+	padding: 0;
+	color: rgba(69, 79,92,1);
+	position: relative;
+	top: -15px;
+	float:center
+}
+
+#about {
+	font-family: 'Unkempt', cursive, sans-serif;
+
+}
 
 #topblock {
+	list-style: none;
 	background-color: rgba(255,255,255,.8);
-	width:80%;
+	width:85%;
 	border-radius: 40px;
-	padding:0;
+	padding-top: 1px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-bottom: 15px;
   	margin-left: auto;
   	margin-right: auto;
 	text-align: center;
-	top: 100px;
+	top: -15px;
 	height: 40%;
 }
+
 
 .profpics {
 	width: 120px;
 	height: 150px;
 }
 
-#about ul {
-	list-style: none;
-}
 
 #lianaleftblock {
+	list-style: none;
 	background-color: rgba(255,255,255,.8);
-	width:45%;
+	width:30%;
 	border-radius: 40px;
-	padding:0;
-	position: inline-block;
+	position: inline-block; 
 	text-align: center;
-	margin-top: 10%;
-	top: 100px;
+	padding-bottom: 10px;
+	margin-top: 4%;
+	top: -10px;
 	height: 40%;
 	float: left;
 }
 
 #vikramrightblock {
+	list-style: none;
 	background-color: rgba(255,255,255,.8);
-	width:45%;
+	width:30%;
 	text-align: center;
 	border-radius: 40px;
-	padding:0;	
-	margin-top: 10%;
+	margin-top: 4%;
+	padding-bottom: 10px;
 	position: inline-block;
-	top: 100px;
+	top: -10px;
 	height: 40%;
 	float: right;
 }
@@ -84,6 +100,7 @@
 
 #contact {
 	text-align: center;
+	font-family: 'Unkempt', cursive, sans-serif;
 	background-color: rgba(255,255,255,.8);
 	width:40%;
 	border-radius: 40px;
@@ -105,8 +122,6 @@
 
 label {
 	color:black;
-	font-family: 'Helvetica-Neue', Helvetica, serif;
-	font-weight:100;
 	margin-bottom: 30px;
 }
 
