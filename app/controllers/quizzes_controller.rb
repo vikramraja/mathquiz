@@ -29,16 +29,14 @@ class QuizzesController < ApplicationController
       while find_challenger == true
  
         potential_challenger = Course.find(Assignment.find(@quiz.assignment_id).course_id).users.pluck(:id).sample
-        if User.find(potential_challenger).role != "teacher"
-          
+        if User.find(potential_challenger).role != "teacher" && potential_challenger != current_user.id
+          binding.pry
           @quiz.challenger = User.find(potential_challenger)
+          binding.pry
           find_challenger = false
           @quiz.save
 
 
-        end
-        if @quiz.challenger == nil
-          raise
         end
 
       end
@@ -54,20 +52,6 @@ class QuizzesController < ApplicationController
   end
 
 
-  # render the quiz page for the creator
-
-
-  def show
-
-    if Quiz.where(challenger_id: current_user.id) != nil
-      Quiz.create
-
-    else
-      #render this other tweet.
-
-    end
-
-  end
 
   def update
     @quiz = Quiz.find(params[:id])
